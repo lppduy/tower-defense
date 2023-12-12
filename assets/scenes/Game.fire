@@ -47,7 +47,8 @@
     },
     "_is3DNode": true,
     "groupIndex": 0,
-    "_id": "daBCYSvINCD6OIjOBG8P5u"
+    "autoReleaseAssets": false,
+    "_id": "64ba35d2-8f17-4c79-8c57-ec7fcec25f1a"
   },
   {
     "__type__": "cc.Node",
@@ -829,7 +830,8 @@
       "__id__": 19
     },
     "_enabled": true,
-    "velocity": 1000,
+    "velocity": 200,
+    "rotationSpeed": 300,
     "levelMap": {
       "__id__": 17
     },

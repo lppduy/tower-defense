@@ -25,8 +25,8 @@ cc.Class({
 
   getTileCoordinatesByPosition(position) {
     return {
-      x: Math.round(position.x / this.tileWidth),
-      y: this.mapHeight - Math.round(position.y / this.tileHeight) - 1,
+      x: Math.floor(position.x / this.tileWidth),
+      y: this.mapHeight - Math.floor(position.y / this.tileHeight) - 1,
     };
   },
 });

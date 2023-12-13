@@ -3,7 +3,7 @@ cc.Class({
 
   properties: {},
 
-  start() {
+  init() {
     this.tiledMap = this.getComponent(cc.TiledMap);
 
     this.roadsLayer = this.tiledMap.getLayer('roads');

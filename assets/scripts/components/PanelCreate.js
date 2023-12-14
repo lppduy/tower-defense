@@ -19,7 +19,7 @@ cc.Class({
   show(coordinates) {
     this.coordinates = coordinates;
     const position = this.map.towersLayer.getPositionAt(this.coordinates);
-    console.log(position)
+    console.log(position);
     this.node.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileWidth / 2)
     );
@@ -29,11 +29,10 @@ cc.Class({
     this.node.active = false;
   },
   onPanelClick(e) {
-    this.node.emit('button-click', {
+    this.node.emit('tower-create', {
       towerKey: e.target.name,
       towerCoordinates: this.coordinates,
     });
   },
 
-  // update (dt) {},
 });

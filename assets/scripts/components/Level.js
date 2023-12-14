@@ -1,5 +1,6 @@
 const LevelMap = require('LevelMap');
 const PanelCreate = require('PanelCreate');
+const Towers = require('Towers');
 cc.Class({
   extends: cc.Component,
 
@@ -12,6 +13,10 @@ cc.Class({
       default: null,
       type: PanelCreate,
     },
+    towers: {
+      default: null,
+      type: Towers,
+    },
   },
 
   onLoad() {
@@ -23,13 +28,15 @@ cc.Class({
   init() {
     this.map.init();
     this.panelCreate.init(this.map);
+    this.towers.init(this.map);
   },
   setEvents() {
     this.map.node.on('touchend', this.onMapTouch, this);
-    this.panelCreate.node.on('button-click', this.onTowerCreate, this);
+    this.panelCreate.node.on('tower-create', this.onTowerCreate, this);
   },
-  onTowerCreate() {
-    console.log('Create');
+  onTowerCreate({ towerKey, towerCoordinates }) {
+    this.towers.create(towerKey, towerCoordinates);
+    this.panelCreate.hide();
   },
   onMapTouch(e) {
     this.panelCreate.hide();
@@ -46,5 +53,4 @@ cc.Class({
       this.panelCreate.show(coordinates);
     }
   },
-  // update (dt) {},
 });

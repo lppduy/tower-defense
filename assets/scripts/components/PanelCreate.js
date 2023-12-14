@@ -21,7 +21,7 @@ cc.Class({
     const position = this.map.towersLayer.getPositionAt(this.coordinates);
     console.log(position);
     this.node.setPosition(
-      cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileWidth / 2)
+      cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
     this.node.active = true;
   },

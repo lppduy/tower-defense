@@ -16,12 +16,21 @@ cc.Class({
     );
     // init tower component
     const towerComponent = towerNode.getComponent('Tower');
-    towerComponent.init(coordinates)
+    towerComponent.init(coordinates);
     // store tower component in this.items
-    this.items.push(towerComponent)
+    this.items.push(towerComponent);
     // place created node in correct postion based on the coordinates
-    const position = this.map.towersLayer.getPositionAt(coordinates)
-    towerNode.setPosition(cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2))
-    this.node.addChild(towerNode)
+    const position = this.map.towersLayer.getPositionAt(coordinates);
+    towerNode.setPosition(
+      cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
+    );
+    this.node.addChild(towerNode);
+  },
+  getByCoordinates(coordinates) {
+    return this.items.find(
+      towerComponent =>
+        towerComponent.coordinates.x === coordinates.x &&
+        towerComponent.coordinates.y === coordinates.y
+    );
   },
 });

@@ -1,14 +1,14 @@
 const EventEmitter = require('events');
-class mainEmitter {
+class MainEmitter {
   constructor() {
     this._emiter = new EventEmitter();
     this._emiter.setMaxListeners(100);
   }
   getInstance() {
-    if (!mainEmitter.instance) {
-      mainEmitter.instance = new mainEmitter();
+    if (!MainEmitter.instance) {
+      MainEmitter.instance = new MainEmitter();
     }
-    return mainEmitter.instance;
+    return MainEmitter.instance;
   }
   emit(...args) {
     this._emiter.emit(...args);
@@ -25,8 +25,8 @@ class mainEmitter {
   destroy() {
     this._emiter.removeAllListeners();
     this._emiter = null;
-    mainEmitter.instance = null;
+    MainEmitter.instance = null;
   }
 }
-mainEmitter.instance = null;
-module.exports = mainEmitter;
+MainEmitter.instance = new MainEmitter();
+module.exports = MainEmitter;

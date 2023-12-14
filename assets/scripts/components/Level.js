@@ -26,6 +26,8 @@ cc.Class({
 
   start() {},
   init() {
+    const collisionManager = cc.director.getCollisionManager();
+    collisionManager.enabled = true;
     this.map.init();
     this.panelCreate.init(this.map);
     this.towers.init(this.map);
@@ -47,10 +49,11 @@ cc.Class({
     };
     const coordinates = this.map.getTileCoordinatesByPosition(position);
     const tileID = this.map.towersLayer.getTileGIDAt(coordinates);
-    console.log(coordinates);
     if (tileID) {
-      console.log(tileID);
-      this.panelCreate.show(coordinates);
+      const tower = this.towers.getByCoordinates(coordinates);
+      if (!tower) {
+        this.panelCreate.show(coordinates);
+      }
     }
   },
 });

@@ -68,20 +68,20 @@
         "__id__": 24
       },
       {
-        "__id__": 28
+        "__id__": 29
       },
       {
-        "__id__": 40
+        "__id__": 41
       }
     ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 42
+        "__id__": 43
       },
       {
-        "__id__": 43
+        "__id__": 44
       }
     ],
     "_prefab": null,
@@ -165,7 +165,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 274.5300529996671
+      "z": 248.54929088613392
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -357,7 +357,7 @@
     "_skewY": 0,
     "_is3DNode": false,
     "groupIndex": 0,
-    "_id": "7bGl/1lJtLtIASzI/98Y32"
+    "_id": "c1V3Laj09EIYLBbJxY627G"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -372,7 +372,7 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "6bRVir1MhIaY0wfZ3snfLX"
+    "_id": "0akrhT7sJKIbIE9j8AmLcE"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -382,7 +382,7 @@
     "asset": {
       "__uuid__": "b25b3157-a281-4fbc-8c9a-a7880c9ea3be"
     },
-    "fileId": "7bGl/1lJtLtIASzI/98Y32",
+    "fileId": "c1V3Laj09EIYLBbJxY627G",
     "sync": false
   },
   {
@@ -443,7 +443,7 @@
     "_skewY": 0,
     "_is3DNode": false,
     "groupIndex": 0,
-    "_id": "26KJM5V4tKCI3wX4vrT64T"
+    "_id": "8eGpuVyLhJPriPpu3ENFWt"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -458,7 +458,7 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "52smkvWDpJULnz7urCvfHh"
+    "_id": "cbCA0KfjFNBYJ/6nvlpj+j"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -468,7 +468,7 @@
     "asset": {
       "__uuid__": "b25b3157-a281-4fbc-8c9a-a7880c9ea3be"
     },
-    "fileId": "26KJM5V4tKCI3wX4vrT64T",
+    "fileId": "8eGpuVyLhJPriPpu3ENFWt",
     "sync": false
   },
   {
@@ -529,7 +529,7 @@
     "_skewY": 0,
     "_is3DNode": false,
     "groupIndex": 0,
-    "_id": "75m/fznQpNOIB5Qb2xJ4Qa"
+    "_id": "2eimUAr0JFa5wFL3ARKk0U"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -544,7 +544,7 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "5cssJC+CZIcKzQQFmrBYQ4"
+    "_id": "99nW5PK5ZJf7+hlGLNeDCW"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -554,7 +554,7 @@
     "asset": {
       "__uuid__": "b25b3157-a281-4fbc-8c9a-a7880c9ea3be"
     },
-    "fileId": "75m/fznQpNOIB5Qb2xJ4Qa",
+    "fileId": "2eimUAr0JFa5wFL3ARKk0U",
     "sync": false
   },
   {
@@ -615,7 +615,7 @@
     "_skewY": 0,
     "_is3DNode": false,
     "groupIndex": 0,
-    "_id": "62QPxc5z9KC4MbMJhIpozi"
+    "_id": "b8mHjn9/dCRaxX23oI5M4r"
   },
   {
     "__type__": "cc.TiledLayer",
@@ -630,7 +630,7 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_id": "abN4VxpxtBP4GSXboT3vIC"
+    "_id": "d4Po0QmqNOdLRAw7y7mb2J"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -640,7 +640,7 @@
     "asset": {
       "__uuid__": "b25b3157-a281-4fbc-8c9a-a7880c9ea3be"
     },
-    "fileId": "62QPxc5z9KC4MbMJhIpozi",
+    "fileId": "b8mHjn9/dCRaxX23oI5M4r",
     "sync": false
   },
   {
@@ -701,7 +701,7 @@
     "_skewY": 0,
     "_is3DNode": false,
     "groupIndex": 0,
-    "_id": "2fTWsUENNMRogjLUeI/4Nc"
+    "_id": "49DvWnRiVIdrn5TD5coswV"
   },
   {
     "__type__": "cc.TiledObjectGroup",
@@ -711,7 +711,7 @@
       "__id__": 18
     },
     "_enabled": true,
-    "_id": "8eJ1Hhqi5KQYcZ3vIfcAg1"
+    "_id": "12HmQa1k5GtKfP7RF63h0P"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -721,7 +721,7 @@
     "asset": {
       "__uuid__": "b25b3157-a281-4fbc-8c9a-a7880c9ea3be"
     },
-    "fileId": "2fTWsUENNMRogjLUeI/4Nc",
+    "fileId": "49DvWnRiVIdrn5TD5coswV",
     "sync": false
   },
   {
@@ -818,7 +818,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemy1",
+    "_name": "enemy",
     "_objFlags": 0,
     "_parent": {
       "__id__": 24
@@ -832,6 +832,9 @@
       },
       {
         "__id__": 27
+      },
+      {
+        "__id__": 28
       }
     ],
     "_prefab": null,
@@ -925,6 +928,27 @@
     "_id": "65kJmmzTtJzaaRrl6ZopeC"
   },
   {
+    "__type__": "cc.BoxCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 25
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 50,
+      "height": 50
+    },
+    "_id": "22RGz528tPc5CL9dIH6mIc"
+  },
+  {
     "__type__": "cc.Node",
     "_name": "panels",
     "_objFlags": 0,
@@ -933,7 +957,7 @@
     },
     "_children": [
       {
-        "__id__": 29
+        "__id__": 30
       }
     ],
     "_active": true,
@@ -987,24 +1011,24 @@
     "_name": "panel-create",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 28
+      "__id__": 29
     },
     "_children": [
       {
-        "__id__": 30
+        "__id__": 31
       },
       {
-        "__id__": 34
+        "__id__": 35
       }
     ],
     "_active": false,
     "_level": 3,
     "_components": [
       {
-        "__id__": 38
+        "__id__": 39
       },
       {
-        "__id__": 39
+        "__id__": 40
       }
     ],
     "_prefab": null,
@@ -1052,21 +1076,21 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "GreenTower",
+    "_name": "Tower1",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 29
+      "__id__": 30
     },
     "_children": [
       {
-        "__id__": 31
+        "__id__": 32
       }
     ],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 33
+        "__id__": 34
       }
     ],
     "_prefab": null,
@@ -1117,14 +1141,14 @@
     "_name": "icon",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 30
+      "__id__": 31
     },
     "_children": [],
     "_active": true,
     "_level": 5,
     "_components": [
       {
-        "__id__": 32
+        "__id__": 33
       }
     ],
     "_prefab": null,
@@ -1175,7 +1199,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 31
+      "__id__": 32
     },
     "_enabled": true,
     "_materials": [
@@ -1207,7 +1231,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 30
+      "__id__": 31
     },
     "_enabled": true,
     "_materials": [
@@ -1236,21 +1260,21 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "RedTower",
+    "_name": "Tower2",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 29
+      "__id__": 30
     },
     "_children": [
       {
-        "__id__": 35
+        "__id__": 36
       }
     ],
     "_active": true,
     "_level": 4,
     "_components": [
       {
-        "__id__": 37
+        "__id__": 38
       }
     ],
     "_prefab": null,
@@ -1301,14 +1325,14 @@
     "_name": "icon",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 34
+      "__id__": 35
     },
     "_children": [],
     "_active": true,
     "_level": 5,
     "_components": [
       {
-        "__id__": 36
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -1359,7 +1383,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 35
+      "__id__": 36
     },
     "_enabled": true,
     "_materials": [
@@ -1391,7 +1415,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 34
+      "__id__": 35
     },
     "_enabled": true,
     "_materials": [
@@ -1423,7 +1447,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 29
+      "__id__": 30
     },
     "_enabled": true,
     "_materials": [
@@ -1455,14 +1479,14 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 29
+      "__id__": 30
     },
     "_enabled": true,
     "panel1": {
-      "__id__": 30
+      "__id__": 31
     },
     "panel2": {
-      "__id__": 34
+      "__id__": 35
     },
     "_id": "d35rdC4bFPFIxrqEYCvGGi"
   },
@@ -1478,7 +1502,7 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 41
+        "__id__": 42
       }
     ],
     "_prefab": null,
@@ -1529,7 +1553,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 40
+      "__id__": 41
     },
     "_enabled": true,
     "towerPrefabs": [
@@ -1571,10 +1595,10 @@
       "__id__": 22
     },
     "panelCreate": {
-      "__id__": 39
+      "__id__": 40
     },
     "towers": {
-      "__id__": 41
+      "__id__": 42
     },
     "_id": "89UK6EmbpJaJvJpzQjv+DT"
   }

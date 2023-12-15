@@ -43,8 +43,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 42,
-      "height": 55
+      "width": 39,
+      "height": 64
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -91,7 +91,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "038ebb2a-fde2-4fae-ab5b-15970ed44de3"
+      "__uuid__": "fc34bb34-6417-420b-9be1-f1fb9a0725f4"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -116,9 +116,13 @@
     },
     "_enabled": true,
     "damage": 25,
-    "speed": 1,
+    "attackSpeed": 1,
     "attackRange": 0,
+    "rotationSpeed": 5000,
     "price": 25,
+    "bulletPrefab": {
+      "__uuid__": "9c5d62ee-4b6b-4bb0-adeb-b9df3b0ca86c"
+    },
     "_id": ""
   },
   {

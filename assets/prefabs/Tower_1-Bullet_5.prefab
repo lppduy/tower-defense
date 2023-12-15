@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tower2",
+    "_name": "Tower_1-Bullet_5",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -43,8 +43,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 49,
-      "height": 83
+      "width": 19,
+      "height": 28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -91,7 +91,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "c0c552ed-567b-425d-83df-9fae914cfd5a"
+      "__uuid__": "70cb7bb5-9bdd-42d7-be47-f843ed0c164f"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -108,25 +108,19 @@
     "_id": ""
   },
   {
-    "__type__": "22ce26KkJVM1KaiK8h8hxKE",
+    "__type__": "2d759sq75lOx4l/vUtraiZD",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "damage": 20,
-    "attackSpeed": 1,
-    "attackRange": 1,
-    "rotationSpeed": 500,
-    "price": 25,
-    "bulletPrefab": {
-      "__uuid__": "4cec1aea-5663-490c-8d14-ff9be81498f3"
-    },
+    "speed": 20,
+    "damage": 25,
     "_id": ""
   },
   {
-    "__type__": "cc.CircleCollider",
+    "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -139,7 +133,11 @@
       "x": 0,
       "y": 0
     },
-    "_radius": 256,
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 19,
+      "height": 28
+    },
     "_id": ""
   },
   {
@@ -148,9 +146,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "98e3ac61-ea4a-4ff5-afa5-445d145b59af"
+      "__uuid__": "9c5d62ee-4b6b-4bb0-adeb-b9df3b0ca86c"
     },
-    "fileId": "362yaakJ1ByYcYwvxH3LVq",
+    "fileId": "66AARTuD9J8acqHMCGurQ5",
     "sync": false
   }
 ]

@@ -5,28 +5,30 @@ cc.Class({
     damage: 0,
     attackSpeed: 1,
     attackRange: 0,
-    rotationSpeed: 500,
+    rotationSpeed: 2000,
     price: 25,
+    bulletPrefab: cc.Prefab,
   },
-
+  onLoad() {
+    cc.director.getCollisionManager().enabledDebugDraw = true;
+  },
   init(coordinates) {
     this.coordinates = coordinates;
     this.targets = [];
     this.schedule(() => {
       this.tryFire();
-    }, 0.5);
+    }, 1 / this.attackSpeed);
   },
   onCollisionEnter(other, self) {
     if (other.node.name === 'enemy') {
       this.targets.push(other.node);
-      console.log(other);
     }
   },
   onCollisionExit(other, self) {
     this.removeTarget(other.node);
   },
   removeTarget(node) {
-    this.targets.filter(target => target !== node);
+    this.targets = this.targets.filter(target => target !== node);
   },
   getTarget() {
     return this.targets.length ? this.targets.find(target => target.active) : false;
@@ -35,21 +37,38 @@ cc.Class({
     const targetNode = this.getTarget();
     if (targetNode && targetNode.active) {
       const targetPosition = cc.v2(targetNode.x, targetNode.y);
-      this.rotateTo(targetPosition);
+      this.rotateTo(targetPosition).then(() => {
+        this.createBullet(targetPosition);
+    });
     }
+  },
+  createBullet(targetPosition) {
+    const bulletNode = cc.instantiate(this.bulletPrefab);
+    bulletNode.position = cc.v2(this.node.x, this.node.y);
+    bulletNode.angle = this.node.angle;
+    this.node.parent.addChild(bulletNode);
+    bulletNode.getComponent('Bullet').init(targetPosition)
   },
   rotateTo(targetPosition) {
     const angle = this.getAngle(targetPosition);
-    let distance = Math.abs(angle - this.node.angle);
+    const distance = Math.abs(angle - this.node.angle);
 
-    if (distance) {
-      const time = distance / this.rotationSpeed;
-      this.node.runAction(cc.rotateTo(time, angle));
-    }
+    return new Promise(resolve => {
+      if (distance) {
+          const time = distance / this.rotationSpeed;
+          this.node.runAction(cc.sequence(
+              cc.rotateTo(time, -angle),
+              cc.callFunc(resolve)
+          ));
+      } else {
+          resolve();
+      }
+  });
   },
   getAngle(targetPosition) {
     const result =
-      Math.atan2(targetPosition.y - this.node.y, targetPosition.x - this.node.x) * 180 / Math.PI - 90;
+      (Math.atan2(targetPosition.y - this.node.y, targetPosition.x - this.node.x) * 180) / Math.PI -
+      90;
     return result;
   },
 });

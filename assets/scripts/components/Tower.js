@@ -10,7 +10,7 @@ cc.Class({
     bulletPrefab: cc.Prefab,
   },
   onLoad() {
-    cc.director.getCollisionManager().enabledDebugDraw = true;
+    // cc.director.getCollisionManager().enabledDebugDraw = true;
   },
   init(coordinates) {
     this.coordinates = coordinates;

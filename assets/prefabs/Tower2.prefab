@@ -49,7 +49,7 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 0.3
     },
     "_position": {
       "__type__": "cc.Vec3",
@@ -118,7 +118,7 @@
     "damage": 20,
     "attackSpeed": 1,
     "attackRange": 1,
-    "rotationSpeed": 500,
+    "rotationSpeed": 5000,
     "price": 25,
     "bulletPrefab": {
       "__uuid__": "4cec1aea-5663-490c-8d14-ff9be81498f3"

@@ -9,6 +9,7 @@ cc.Class({
       default: null,
       type: LevelMap,
     },
+    health: 50,
     _rotationSpeed: 300,
   },
 
@@ -78,13 +79,21 @@ cc.Class({
     }
 
     const tileCoordinates = this.levelMap.getTileCoordinatesByPosition(
-      cc.v2(currentTarget.x, currentTarget.y),
+      cc.v2(currentTarget.x, currentTarget.y)
     );
     const position = this.levelMap.roadsLayer.getPositionAt(tileCoordinates.x, tileCoordinates.y);
 
     return cc.v2(
       position.x + this.levelMap.tileWidth / 2,
-      position.y + this.levelMap.tileWidth / 2,
+      position.y + this.levelMap.tileWidth / 2
     );
+  },
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 0) {
+      this.node.stopAllActions();
+      this.node.emit('killed');
+      this.node.destroy();
+    }
   },
 });

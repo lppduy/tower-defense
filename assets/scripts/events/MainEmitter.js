@@ -5,10 +5,13 @@ class MainEmitter {
     this._emiter.setMaxListeners(100);
   }
   getInstance() {
+
     if (!MainEmitter.instance) {
       MainEmitter.instance = new MainEmitter();
     }
     return MainEmitter.instance;
+
+
   }
   emit(...args) {
     this._emiter.emit(...args);
@@ -25,8 +28,10 @@ class MainEmitter {
   destroy() {
     this._emiter.removeAllListeners();
     this._emiter = null;
+
     MainEmitter.instance = null;
   }
 }
 MainEmitter.instance = new MainEmitter();
 module.exports = MainEmitter;
+

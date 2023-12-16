@@ -1,11 +1,13 @@
-const LevelMap = require('LevelMap');
-
+const MainEmitter = require('MainEmitter');
+const { GAME_EVENTS } = require('EventCode');
 cc.Class({
   extends: cc.Component,
 
   properties: {
     velocity: { default: 150, serializable: true },
     health: 50,
+    damage: { default: 10, serializable: true },
+    coins: { default: 10, serializable: true },
     _rotationSpeed: 300,
   },
 
@@ -79,21 +81,27 @@ cc.Class({
     }
 
     const tileCoordinates = this.levelMap.getTileCoordinatesByPosition(
-      cc.v2(currentTarget.x, currentTarget.y),
+      cc.v2(currentTarget.x, currentTarget.y)
     );
     const position = this.levelMap.roadsLayer.getPositionAt(tileCoordinates.x, tileCoordinates.y);
 
     return cc.v2(
       position.x + this.levelMap.tileWidth / 2,
-      position.y + this.levelMap.tileWidth / 2,
+      position.y + this.levelMap.tileWidth / 2
     );
   },
   takeDamage(damage) {
     this.health -= damage;
     if (this.health <= 0) {
       this.node.stopAllActions();
+      MainEmitter.instance.emit(GAME_EVENTS.ENEMY_KILLED, this.coins);
       this.node.emit('killed');
       this.node.destroy();
+    }
+  },
+  onCollisionEnter(other, self) {
+    if (other.node.group === 'base') {
+      MainEmitter.instance.emit(GAME_EVENTS.HIT_BASE, this.damage);
     }
   },
 });

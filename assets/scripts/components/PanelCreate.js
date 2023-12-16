@@ -19,7 +19,6 @@ cc.Class({
   show(coordinates) {
     this.coordinates = coordinates;
     const position = this.map.towersLayer.getPositionAt(this.coordinates);
-    console.log(position);
     this.node.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
@@ -34,5 +33,4 @@ cc.Class({
       towerCoordinates: this.coordinates,
     });
   },
-
 });

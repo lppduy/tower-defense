@@ -1,7 +1,7 @@
 const LevelMap = require('LevelMap');
 const PanelCreate = require('PanelCreate');
 const Towers = require('Towers');
-const Enemies = require('Enemies');
+const EnemyWaves = require('EnemyWaves');
 cc.Class({
   extends: cc.Component,
 
@@ -18,9 +18,9 @@ cc.Class({
       default: null,
       type: Towers,
     },
-    enemies: {
+    enemyWaves: {
       default: null,
-      type: Enemies,
+      type: EnemyWaves,
     },
   },
 
@@ -36,7 +36,7 @@ cc.Class({
     this.map.init();
     this.panelCreate.init(this.map);
     this.towers.init(this.map);
-    this.enemies.init(this);
+    this.enemyWaves.init(this);
   },
   setEvents() {
     this.map.node.on('touchend', this.onMapTouch, this);

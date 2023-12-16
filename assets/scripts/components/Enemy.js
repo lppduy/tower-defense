@@ -5,12 +5,12 @@ cc.Class({
 
   properties: {
     velocity: { default: 150, serializable: true },
-    levelMap: {
-      default: null,
-      type: LevelMap,
-    },
     health: 50,
     _rotationSpeed: 300,
+  },
+
+  init(level) {
+    this.levelMap = level.map;
   },
 
   start() {
@@ -79,13 +79,13 @@ cc.Class({
     }
 
     const tileCoordinates = this.levelMap.getTileCoordinatesByPosition(
-      cc.v2(currentTarget.x, currentTarget.y)
+      cc.v2(currentTarget.x, currentTarget.y),
     );
     const position = this.levelMap.roadsLayer.getPositionAt(tileCoordinates.x, tileCoordinates.y);
 
     return cc.v2(
       position.x + this.levelMap.tileWidth / 2,
-      position.y + this.levelMap.tileWidth / 2
+      position.y + this.levelMap.tileWidth / 2,
     );
   },
   takeDamage(damage) {

@@ -95,7 +95,6 @@ cc.Class({
     if (this.health <= 0) {
       this.node.stopAllActions();
       MainEmitter.instance.emit(GAME_EVENTS.ENEMY_KILLED, this.coins);
-      this.node.emit('killed');
       this.node.destroy();
     }
   },

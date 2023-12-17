@@ -5,11 +5,6 @@ cc.Class({
     speed: 20,
     damage: 25,
   },
-  init(targetPosition) {
-    this.targetPosition = targetPosition;
-    this.damage = 25;
-    this.setVelocity();
-  },
 
   update(dt) {
     this.node.x += this.velocity.x;

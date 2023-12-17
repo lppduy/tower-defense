@@ -24,7 +24,6 @@ cc.Class({
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
     this.node.addChild(towerNode);
-    console.log(towerComponent.price)
     MainEmitter.instance.emit(UI_EVENTS.BUY_TOWER, towerComponent.price)
   },
   getByCoordinates(coordinates) {

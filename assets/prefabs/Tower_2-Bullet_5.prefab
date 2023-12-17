@@ -115,12 +115,12 @@
       "__id__": 1
     },
     "_enabled": true,
-    "speed": 20,
+    "speed": 15,
     "damage": 20,
     "_id": ""
   },
   {
-    "__type__": "cc.BoxCollider",
+    "__type__": "cc.CircleCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -133,11 +133,7 @@
       "x": 0,
       "y": 0
     },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 40,
-      "height": 70
-    },
+    "_radius": 20,
     "_id": ""
   },
   {

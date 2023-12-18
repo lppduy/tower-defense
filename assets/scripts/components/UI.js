@@ -11,7 +11,7 @@ cc.Class({
   },
 
   onLoad() {
-    this.coins = 200;
+    this.coins = null;
     this.coinAmountLabel.string = this.coins;
     this.timer = 10;
     MainEmitter.instance.registerEvent(UI_EVENTS.CREATE_WAVE, this.onCreateWave.bind(this));
@@ -19,8 +19,11 @@ cc.Class({
       UI_EVENTS.UPDATE_WAVE_COUNT,
       this.onUpdateWaveCount.bind(this)
     );
-    MainEmitter.instance.registerEvent(UI_EVENTS.BUY_TOWER, this.onBuyTower.bind(this));
-    MainEmitter.instance.registerEvent(GAME_EVENTS.ENEMY_KILLED, this.onEnemyKilled.bind(this));
+    MainEmitter.instance.registerEvent(
+      UI_EVENTS.UPDATE_COINS_AMOUNT,
+      this.onUpdateCoinsAmount.bind(this)
+    );
+
     this.showWaveTimeout();
   },
 
@@ -46,17 +49,8 @@ cc.Class({
     this.timer--;
     this.waveTimeoutLabel.string = `Next wave in ${this.timer}s`;
   },
-  onBuyTower(price) {
-    if (this.coins >= price) {
-      this.coins -= price;
-      this.coinAmountLabel.string = this.coins;
-    }
-  },
-  onEnemyKilled(coins) {
-    this.coins += coins;
+  onUpdateCoinsAmount(amount) {
+    this.coins = amount;
     this.coinAmountLabel.string = this.coins;
   },
-  //   update (dt) {
-
-  //   },
 });

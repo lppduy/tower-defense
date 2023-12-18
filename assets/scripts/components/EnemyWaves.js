@@ -65,7 +65,6 @@ cc.Class({
   onEnemyRemoved(eventName, enemyComponent) {
     this.node.emit(eventName, enemyComponent);
     this.items = this.items.filter(item => item !== enemyComponent);
-
     if (!this.items.length) {
       this.createWave();
     }

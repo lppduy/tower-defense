@@ -1,3 +1,6 @@
+const MainEmitter = require('MainEmitter');
+const { SOUND_EVENTS } = require('EventCode');
+
 cc.Class({
   extends: cc.Component,
 
@@ -13,13 +16,13 @@ cc.Class({
   onLoad() {
     cc.director.getCollisionManager().enabledDebugDraw = true;
     this.timer = 0;
-    this.attackInterval = 1 / this.attackSpeed;
+    this.reloadTime = 1 / this.attackSpeed;
     this.currentEnemy = null;
   },
   update(dt) {
     if (!this.currentEnemy) return;
     this.timer += dt;
-    if (this.timer >= this.attackInterval) {
+    if (this.timer >= this.reloadTime) {
       this.shoot();
       this.timer = 0;
     }
@@ -63,6 +66,7 @@ cc.Class({
     bulletNode.position = cc.v2(bulletPositionInTowers.x, bulletPositionInTowers.y);
     bulletNode.angle = this.node.angle;
     this.node.parent.addChild(bulletNode);
+    MainEmitter.instance.emit(SOUND_EVENTS.TOWER_SHOOT);
     bulletNode.getComponent('Bullet').setVelocity();
   },
 

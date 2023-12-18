@@ -233,6 +233,9 @@
     "bulletPosition": {
       "__id__": 2
     },
+    "shootingSound": {
+      "__uuid__": "e162e357-3ec7-47c5-9136-3cef8cb14123"
+    },
     "_id": ""
   },
   {

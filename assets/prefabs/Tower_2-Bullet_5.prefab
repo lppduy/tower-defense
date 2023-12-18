@@ -117,6 +117,9 @@
     "_enabled": true,
     "speed": 15,
     "damage": 20,
+    "shootingSound": {
+      "__uuid__": "9a8a07e5-8dcd-4d6f-a49f-94905aaa30f2"
+    },
     "_id": ""
   },
   {

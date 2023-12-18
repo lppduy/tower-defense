@@ -1,6 +1,3 @@
-const MainEmitter = require('MainEmitter');
-const { SOUND_EVENTS } = require('EventCode');
-
 cc.Class({
   extends: cc.Component,
 
@@ -12,6 +9,7 @@ cc.Class({
     price: 25,
     bulletPrefab: cc.Prefab,
     bulletPosition: cc.Node,
+    
   },
   onLoad() {
     cc.director.getCollisionManager().enabledDebugDraw = true;
@@ -66,7 +64,6 @@ cc.Class({
     bulletNode.position = cc.v2(bulletPositionInTowers.x, bulletPositionInTowers.y);
     bulletNode.angle = this.node.angle;
     this.node.parent.addChild(bulletNode);
-    MainEmitter.instance.emit(SOUND_EVENTS.TOWER_SHOOT);
     bulletNode.getComponent('Bullet').setVelocity();
   },
 

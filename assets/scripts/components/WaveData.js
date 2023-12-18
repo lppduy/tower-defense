@@ -7,7 +7,7 @@ cc.Class({
       type: cc.Prefab,
     },
     enemiesCount: 0,
-    timeout: 5,
+    timeout: {default: 10, serializable: true},
     repeatInterval: 1,
   },
 });

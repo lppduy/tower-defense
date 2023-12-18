@@ -1,4 +1,6 @@
-const EnemiesWave = require('EnemiesWave');
+const MainEmitter = require('MainEmitter');
+const { UI_EVENTS } = require('EventCode');
+const waveData = require('WaveData');
 
 cc.Class({
   extends: cc.Component,
@@ -6,7 +8,7 @@ cc.Class({
   properties: {
     waves: {
       default: [],
-      type: [EnemiesWave],
+      type: [waveData],
     },
   },
 
@@ -22,15 +24,17 @@ cc.Class({
     if (!wave) {
       return;
     }
+    MainEmitter.instance.emit(UI_EVENTS.CREATE_WAVE);
     ++this.waveIndex;
 
     this.schedule(
       () => {
+        MainEmitter.instance.emit(UI_EVENTS.UPDATE_WAVE_COUNT, this.waveIndex);
         this.createEnemy(wave.enemy);
       },
       wave.repeatInterval,
       wave.enemiesCount - 1,
-      wave.timeout,
+      wave.timeout
     );
   },
 
@@ -46,7 +50,7 @@ cc.Class({
       () => {
         this.onEnemyRemoved('enemy-killed', enemyComponent);
       },
-      this,
+      this
     );
 
     enemyNode.once(
@@ -54,7 +58,7 @@ cc.Class({
       () => {
         this.onEnemyRemoved('enemy-finished', enemyComponent);
       },
-      this,
+      this
     );
   },
 

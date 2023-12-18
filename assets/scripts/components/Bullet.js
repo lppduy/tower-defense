@@ -20,9 +20,9 @@ cc.Class({
     this.velocity = cc.v2(Math.cos(azimuth) * this.speed, Math.sin(azimuth) * this.speed);
   },
   onCollisionEnter(other, self) {
-    if (other.node.name === 'enemy') {
-      this.node.destroy()
-      other.node.getComponent('Enemy').takeDamage(this.damage)
+    if (other.node.group === 'enemy') {
+      this.node.destroy();
+      other.node.getComponent('Enemy').takeDamage(this.damage);
     }
   },
 });

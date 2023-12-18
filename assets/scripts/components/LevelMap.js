@@ -17,12 +17,9 @@ cc.Class({
     this.mapWidth = this.mapSize.width;
     this.mapHeight = this.mapSize.height;
 
-    /* TRY TO SEE HOW IT WORKS:
-    const coords = this.getTileCoordinatesByPosition(cc.v2(100, 100));
-    cc.log(coords);
-    */
   },
 
+  // Convert Cocos's coordinates (x,y) to Tiledmap's coordinates (col, row)
   getTileCoordinatesByPosition(position) {
     return {
       x: Math.floor(position.x / this.tileWidth),

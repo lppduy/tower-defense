@@ -1,4 +1,7 @@
-const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
+const Emitter = require("EventEmitter");
+const Key = require("Key");
+
+const { TOWER_1_DATA, TOWER_2_DATA } = require("TowersData");
 cc.Class({
   extends: cc.Component,
 
@@ -11,6 +14,11 @@ cc.Class({
     upgradePrice: 0,
     bulletPrefab: cc.Prefab,
     bulletPosition: cc.Node,
+
+    shootingSound: {
+      type: cc.AudioClip,
+      default: null,
+    },
   },
   onLoad() {
     cc.director.getCollisionManager().enabledDebugDraw = true;
@@ -31,7 +39,7 @@ cc.Class({
     this.maxLevel = 5;
     this.targets = [];
     this.type = type;
-    this.towerData = this.type === 'Tower1' ? TOWER_1_DATA : TOWER_2_DATA;
+    this.towerData = this.type === "Tower1" ? TOWER_1_DATA : TOWER_2_DATA;
     this.configTower();
   },
   configTower() {
@@ -48,13 +56,13 @@ cc.Class({
     this.configTower();
   },
   onCollisionEnter(other, self) {
-    if (other.node.name === 'enemy') {
+    if (other.node.name === "enemy") {
       this.targets.push(other.node);
       this.currentEnemy = this.getTarget();
     }
   },
   onCollisionStay(other, self) {
-    if (other.node.name === 'enemy') {
+    if (other.node.name === "enemy") {
       this.lookAtEnemy(this.currentEnemy);
     }
   },
@@ -63,7 +71,7 @@ cc.Class({
     this.currentEnemy = this.getTarget();
   },
   removeTarget(node) {
-    this.targets = this.targets.filter(target => target !== node);
+    this.targets = this.targets.filter((target) => target !== node);
   },
   getTarget() {
     return this.targets[0];
@@ -79,10 +87,15 @@ cc.Class({
       bulletPositionRelativeToTowers
     );
 
-    bulletNode.position = cc.v2(bulletPositionInTowers.x, bulletPositionInTowers.y);
+    bulletNode.position = cc.v2(
+      bulletPositionInTowers.x,
+      bulletPositionInTowers.y
+    );
     bulletNode.angle = this.node.angle;
     this.node.parent.addChild(bulletNode);
-    bulletNode.getComponent('Bullet').setVelocity();
+    bulletNode.getComponent("Bullet").setVelocity();
+
+    Emitter.instance.emit(Key.PLAY_SFX, this.shootingSound);
   },
 
   lookAtEnemy(targetNode) {

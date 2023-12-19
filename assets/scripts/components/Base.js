@@ -6,11 +6,12 @@ cc.Class({
 
   properties: {
     healthBar: cc.ProgressBar,
+    maxHealth:50,
+    curHealth:0,
   },
 
   onLoad() {
-    this.maxHealth = 50;
-    this.curHealth = 50;
+    this.curHealth = this.maxHealth;
     MainEmitter.instance.registerEvent(GAME_EVENTS.HIT_BASE, this.onHitBase.bind(this));
   },
   onHitBase(damage) {

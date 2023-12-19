@@ -1,20 +1,20 @@
+const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
 cc.Class({
   extends: cc.Component,
 
   properties: {
     damage: 0,
-    attackSpeed: 1,
+    reloadTime: 0,
     attackRange: 0,
     rotationSpeed: 2000,
-    price: 25,
+    price: 0,
+    upgradePrice: 0,
     bulletPrefab: cc.Prefab,
     bulletPosition: cc.Node,
-    
   },
   onLoad() {
     cc.director.getCollisionManager().enabledDebugDraw = true;
     this.timer = 0;
-    this.reloadTime = 1 / this.attackSpeed;
     this.currentEnemy = null;
   },
   update(dt) {
@@ -25,9 +25,27 @@ cc.Class({
       this.timer = 0;
     }
   },
-  init(coordinates) {
+  init(coordinates, type) {
     this.coordinates = coordinates;
+    this.level = 1;
+    this.maxLevel = 5;
     this.targets = [];
+    this.type = type;
+    this.towerData = this.type === 'Tower1' ? TOWER_1_DATA : TOWER_2_DATA;
+    this.configTower();
+  },
+  configTower() {
+    const curLevelData = this.towerData[this.level - 1];
+    this.damage = curLevelData.damage;
+    this.reloadTime = curLevelData.reloadTime;
+    this.price = curLevelData.price;
+    this.attackRange = curLevelData.attackRange;
+    this.upgradePrice = curLevelData.upgradePrice;
+  },
+  upgradeTower() {
+    if (this.level < this.maxLevel) return;
+    this.level++;
+    this.configTower();
   },
   onCollisionEnter(other, self) {
     if (other.node.name === 'enemy') {

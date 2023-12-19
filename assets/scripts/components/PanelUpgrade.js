@@ -12,11 +12,13 @@ cc.Class({
       x: 0,
       y: 0,
     };
+    this.tower = null;
     this.upgradeBtn.on('touchend', this.onUpgradeTower, this);
     this.sellBtn.on('touchend', this.onSellTower, this);
   },
 
-  show(coordinates) {
+  show(coordinates, tower) {
+    this.tower = tower;
     this.coordinates = coordinates;
     const position = this.map.towersLayer.getPositionAt(this.coordinates);
     this.node.setPosition(
@@ -27,11 +29,14 @@ cc.Class({
   hide() {
     this.node.active = false;
   },
- 
+
   onUpgradeTower() {
-    
+    this.hide();
+    console.log('Upgrade', this.tower);
   },
-  onSellTower(tower) {
-    tower;
+  onSellTower() {
+    console.log('Sell', this.tower);
+    
+    this.hide();
   },
 });

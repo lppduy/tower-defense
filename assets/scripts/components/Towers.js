@@ -17,7 +17,7 @@ cc.Class({
   },
   init(map) {
     this.map = map;
-    this.items = [];
+    this.towerComponents = [];
   },
   onInstantiateTower({ towerKey, towerCoordinates }) {
     const towerNode = cc.instantiate(
@@ -25,7 +25,7 @@ cc.Class({
     );
     const towerComponent = towerNode.getComponent('Tower');
 
-    towerComponent.init(towerCoordinates);
+    towerComponent.init(towerCoordinates, towerKey);
     const position = this.map.towersLayer.getPositionAt(towerCoordinates);
     towerNode.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
@@ -35,11 +35,11 @@ cc.Class({
   },
   onCreateTower() {
     const towerComponent = this.curTowerNode.getComponent('Tower');
-    this.items.push(towerComponent);
+    this.towerComponents.push(towerComponent);
     this.node.addChild(this.curTowerNode);
   },
   getByCoordinates(coordinates) {
-    return this.items.find(
+    return this.towerComponents.find(
       towerComponent =>
         towerComponent.coordinates.x === coordinates.x &&
         towerComponent.coordinates.y === coordinates.y

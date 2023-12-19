@@ -1,3 +1,5 @@
+const MainEmitter = require('MainEmitter');
+const { GAME_EVENTS } = require('EventCode');
 cc.Class({
   extends: cc.Component,
 
@@ -12,13 +14,13 @@ cc.Class({
       x: 0,
       y: 0,
     };
-    this.tower = null;
+    this.towerComponent = null;
     this.upgradeBtn.on('touchend', this.onUpgradeTower, this);
     this.sellBtn.on('touchend', this.onSellTower, this);
   },
 
-  show(coordinates, tower) {
-    this.tower = tower;
+  show(coordinates, towerComponent) {
+    this.towerComponent = towerComponent;
     this.coordinates = coordinates;
     const position = this.map.towersLayer.getPositionAt(this.coordinates);
     this.node.setPosition(
@@ -31,12 +33,13 @@ cc.Class({
   },
 
   onUpgradeTower() {
+    console.log('Upgrade', this.towerComponent);
     this.hide();
-    console.log('Upgrade', this.tower);
   },
   onSellTower() {
-    console.log('Sell', this.tower);
-    
+    const coinsAmount = Math.trunc(this.towerComponent.price / 2);
+    MainEmitter.instance.emit(GAME_EVENTS.SELL_TOWER, coinsAmount);
+    MainEmitter.instance.emit(GAME_EVENTS.DESTROY_TOWER, this.towerComponent);
     this.hide();
   },
 });

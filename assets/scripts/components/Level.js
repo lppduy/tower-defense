@@ -56,7 +56,8 @@ cc.Class({
       GAME_EVENTS.REQUEST_BUY_TOWER,
       this.onRequestBuyTower.bind(this)
     );
-    MainEmitter.instance.registerEvent(GAME_EVENTS.ENEMY_KILLED, this.onEnemyKilled.bind(this));
+    MainEmitter.instance.registerEvent(GAME_EVENTS.ENEMY_KILLED, this.updateCoinsAmount.bind(this));
+    MainEmitter.instance.registerEvent(GAME_EVENTS.SELL_TOWER, this.updateCoinsAmount.bind(this));
   },
 
   onMapTouch(e) {
@@ -70,26 +71,25 @@ cc.Class({
     const coordinates = this.map.getTileCoordinatesByPosition(position);
     const tileID = this.map.towersLayer.getTileGIDAt(coordinates);
     if (tileID) {
-      const tower = this.towers.getByCoordinates(coordinates);
-      if (!tower) {
+      const towerComponent = this.towers.getByCoordinates(coordinates);
+      if (!towerComponent) {
         this.panelCreate.show(coordinates);
       } else {
-        this.panelUpgrade.show(coordinates, tower);
+        this.panelUpgrade.show(coordinates, towerComponent);
       }
     }
   },
   onRequestBuyTower(price) {
     if (this.coins >= price) {
-      this.coins -= price;
       MainEmitter.instance.emit(GAME_EVENTS.CREATE_TOWER);
-      MainEmitter.instance.emit(UI_EVENTS.UPDATE_COINS_AMOUNT, this.coins);
+      this.updateCoinsAmount(-price);
     } else {
       console.log('Not enough coins to buy tower!');
     }
     this.panelCreate.hide();
   },
-  onEnemyKilled(coins) {
-    this.coins += coins;
+  updateCoinsAmount(amount) {
+    this.coins += amount;
     MainEmitter.instance.emit(UI_EVENTS.UPDATE_COINS_AMOUNT, this.coins);
   },
 });

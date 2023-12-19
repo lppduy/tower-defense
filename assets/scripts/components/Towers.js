@@ -14,6 +14,7 @@ cc.Class({
       this.onInstantiateTower.bind(this)
     );
     MainEmitter.instance.registerEvent(GAME_EVENTS.CREATE_TOWER, this.onCreateTower.bind(this));
+    MainEmitter.instance.registerEvent(GAME_EVENTS.DESTROY_TOWER, this.onDestroyTower.bind(this));
   },
   init(map) {
     this.map = map;
@@ -38,11 +39,22 @@ cc.Class({
     this.towerComponents.push(towerComponent);
     this.node.addChild(this.curTowerNode);
   },
+  onDestroyTower(towerComponent) {
+    this.removeTowerComponent(towerComponent);
+  },
   getByCoordinates(coordinates) {
     return this.towerComponents.find(
       towerComponent =>
         towerComponent.coordinates.x === coordinates.x &&
         towerComponent.coordinates.y === coordinates.y
     );
+  },
+  removeTowerComponent(tower) {
+    this.towerComponents = this.towerComponents.filter(
+      towerComponent =>
+        towerComponent.coordinates.x !== tower.coordinates.x &&
+        towerComponent.coordinates.y !== tower.coordinates.y
+    );
+    tower.node.destroy();
   },
 });

@@ -1,5 +1,5 @@
 const MainEmitter = require('MainEmitter');
-const { UI_EVENTS } = require('EventCode');
+const { GAME_EVENTS } = require('EventCode');
 
 cc.Class({
   extends: cc.Component,
@@ -7,28 +7,39 @@ cc.Class({
   properties: {
     towerPrefabs: [cc.Prefab],
   },
-
+  onLoad() {
+    this.curTowerNode = null;
+    MainEmitter.instance.registerEvent(
+      GAME_EVENTS.INSTANTIATE_TOWER,
+      this.onInstantiateTower.bind(this)
+    );
+    MainEmitter.instance.registerEvent(GAME_EVENTS.CREATE_TOWER, this.onCreateTower.bind(this));
+  },
   init(map) {
     this.map = map;
-    this.items = [];
+    this.towerComponents = [];
   },
-  create(key, coordinates) {
+  onInstantiateTower({ towerKey, towerCoordinates }) {
     const towerNode = cc.instantiate(
-      this.towerPrefabs.find(towerPrefab => towerPrefab.name === key)
+      this.towerPrefabs.find(towerPrefab => towerPrefab.name === towerKey)
     );
     const towerComponent = towerNode.getComponent('Tower');
-    towerComponent.init(coordinates);
-    this.items.push(towerComponent);
-    const position = this.map.towersLayer.getPositionAt(coordinates);
+
+    towerComponent.init(towerCoordinates, towerKey);
+    const position = this.map.towersLayer.getPositionAt(towerCoordinates);
     towerNode.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
-    this.node.addChild(towerNode);
-    console.log(towerComponent.price)
-    MainEmitter.instance.emit(UI_EVENTS.BUY_TOWER, towerComponent.price)
+    this.curTowerNode = towerNode;
+    MainEmitter.instance.emit(GAME_EVENTS.REQUEST_BUY_TOWER, towerComponent.price);
+  },
+  onCreateTower() {
+    const towerComponent = this.curTowerNode.getComponent('Tower');
+    this.towerComponents.push(towerComponent);
+    this.node.addChild(this.curTowerNode);
   },
   getByCoordinates(coordinates) {
-    return this.items.find(
+    return this.towerComponents.find(
       towerComponent =>
         towerComponent.coordinates.x === coordinates.x &&
         towerComponent.coordinates.y === coordinates.y

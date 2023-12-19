@@ -67,7 +67,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 180
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -115,12 +115,15 @@
       "__id__": 1
     },
     "_enabled": true,
-    "speed": 20,
+    "speed": 15,
     "damage": 20,
+    "shootingSound": {
+      "__uuid__": "9a8a07e5-8dcd-4d6f-a49f-94905aaa30f2"
+    },
     "_id": ""
   },
   {
-    "__type__": "cc.BoxCollider",
+    "__type__": "cc.CircleCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -133,11 +136,7 @@
       "x": 0,
       "y": 0
     },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 40,
-      "height": 70
-    },
+    "_radius": 20,
     "_id": ""
   },
   {

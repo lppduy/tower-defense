@@ -1,74 +1,96 @@
+const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
 cc.Class({
   extends: cc.Component,
 
   properties: {
     damage: 0,
-    attackSpeed: 1,
+    reloadTime: 0,
     attackRange: 0,
     rotationSpeed: 2000,
-    price: 25,
+    price: 0,
+    upgradePrice: 0,
     bulletPrefab: cc.Prefab,
+    bulletPosition: cc.Node,
   },
   onLoad() {
-    // cc.director.getCollisionManager().enabledDebugDraw = true;
+    cc.director.getCollisionManager().enabledDebugDraw = true;
+    this.timer = 0;
+    this.currentEnemy = null;
   },
-  init(coordinates) {
+  update(dt) {
+    if (!this.currentEnemy) return;
+    this.timer += dt;
+    if (this.timer >= this.reloadTime) {
+      this.shoot();
+      this.timer = 0;
+    }
+  },
+  init(coordinates, type) {
     this.coordinates = coordinates;
+    this.level = 1;
+    this.maxLevel = 5;
     this.targets = [];
-    this.schedule(() => {
-      this.tryFire();
-    }, 1 / this.attackSpeed);
+    this.type = type;
+    this.towerData = this.type === 'Tower1' ? TOWER_1_DATA : TOWER_2_DATA;
+    this.configTower();
+  },
+  configTower() {
+    const curLevelData = this.towerData[this.level - 1];
+    this.damage = curLevelData.damage;
+    this.reloadTime = curLevelData.reloadTime;
+    this.price = curLevelData.price;
+    this.attackRange = curLevelData.attackRange;
+    this.upgradePrice = curLevelData.upgradePrice;
+  },
+  upgradeTower() {
+    if (this.level < this.maxLevel) return;
+    this.level++;
+    this.configTower();
   },
   onCollisionEnter(other, self) {
     if (other.node.name === 'enemy') {
       this.targets.push(other.node);
+      this.currentEnemy = this.getTarget();
+    }
+  },
+  onCollisionStay(other, self) {
+    if (other.node.name === 'enemy') {
+      this.lookAtEnemy(this.currentEnemy);
     }
   },
   onCollisionExit(other, self) {
     this.removeTarget(other.node);
+    this.currentEnemy = this.getTarget();
   },
   removeTarget(node) {
     this.targets = this.targets.filter(target => target !== node);
   },
   getTarget() {
-    return this.targets.length ? this.targets.find(target => target.active) : false;
+    return this.targets[0];
   },
-  tryFire() {
-    const targetNode = this.getTarget();
-    if (targetNode && targetNode.active) {
-      const targetPosition = cc.v2(targetNode.x, targetNode.y);
-      this.rotateTo(targetPosition).then(() => {
-        this.createBullet(targetPosition);
-    });
-    }
-  },
-  createBullet(targetPosition) {
+
+  shoot() {
+    if (!this.currentEnemy) return;
     const bulletNode = cc.instantiate(this.bulletPrefab);
-    bulletNode.position = cc.v2(this.node.x, this.node.y);
+    const bulletPositionRelativeToTowers = this.node.convertToWorldSpaceAR(
+      this.bulletPosition.position
+    );
+    const bulletPositionInTowers = this.node.parent.convertToNodeSpaceAR(
+      bulletPositionRelativeToTowers
+    );
+
+    bulletNode.position = cc.v2(bulletPositionInTowers.x, bulletPositionInTowers.y);
     bulletNode.angle = this.node.angle;
     this.node.parent.addChild(bulletNode);
-    bulletNode.getComponent('Bullet').init(targetPosition)
+    bulletNode.getComponent('Bullet').setVelocity();
   },
-  rotateTo(targetPosition) {
-    const angle = this.getAngle(targetPosition);
-    const distance = Math.abs(angle - this.node.angle);
 
-    return new Promise(resolve => {
-      if (distance) {
-          const time = distance / this.rotationSpeed;
-          this.node.runAction(cc.sequence(
-              cc.rotateTo(time, -angle),
-              cc.callFunc(resolve)
-          ));
-      } else {
-          resolve();
-      }
-  });
-  },
-  getAngle(targetPosition) {
-    const result =
-      (Math.atan2(targetPosition.y - this.node.y, targetPosition.x - this.node.x) * 180) / Math.PI -
-      90;
-    return result;
+  lookAtEnemy(targetNode) {
+    const targetPosition = cc.v2(targetNode.x, targetNode.y);
+    const towerPosition = cc.v2(this.node.x, this.node.y);
+    const direction = targetPosition.sub(towerPosition);
+    const radianAngle = Math.atan2(direction.y, direction.x);
+    const angle = cc.misc.radiansToDegrees(radianAngle) - 90;
+    this.node.angle = angle;
   },
 });

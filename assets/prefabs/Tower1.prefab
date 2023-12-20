@@ -223,10 +223,11 @@
     },
     "_enabled": true,
     "damage": 25,
-    "attackSpeed": 1,
+    "reloadTime": 0,
     "attackRange": 0,
     "rotationSpeed": 5000,
     "price": 25,
+    "upgradePrice": 0,
     "bulletPrefab": {
       "__uuid__": "9c5d62ee-4b6b-4bb0-adeb-b9df3b0ca86c"
     },
@@ -234,7 +235,7 @@
       "__id__": 2
     },
     "shootingSound": {
-      "__uuid__": "9a8a07e5-8dcd-4d6f-a49f-94905aaa30f2"
+      "__uuid__": "c16624eb-02bd-41c7-91d5-594b58090b00"
     },
     "_id": ""
   },

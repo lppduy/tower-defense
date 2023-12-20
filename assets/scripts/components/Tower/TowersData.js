@@ -8,6 +8,10 @@ const TOWER_1_DATA = [
     upgradePrice: 100,
     attackRange: 0,
     bulletSpriteFrameIndex: 0,
+    bulletSize: {
+      width: 20,
+      height: 20,
+    },
   },
   {
     type: 'Tower1',
@@ -18,6 +22,10 @@ const TOWER_1_DATA = [
     upgradePrice: 200,
     attackRange: 0,
     bulletSpriteFrameIndex: 1,
+    bulletSize: {
+      width: 30,
+      height: 30,
+    },
   },
   {
     type: 'Tower1',
@@ -28,6 +36,10 @@ const TOWER_1_DATA = [
     upgradePrice: 400,
     attackRange: 0,
     bulletSpriteFrameIndex: 2,
+    bulletSize: {
+      width: 30,
+      height: 30,
+    },
   },
   {
     type: 'Tower1',
@@ -38,6 +50,10 @@ const TOWER_1_DATA = [
     upgradePrice: 800,
     attackRange: 0,
     bulletSpriteFrameIndex: 3,
+    bulletSize: {
+      width: 30,
+      height: 30,
+    },
   },
   {
     type: 'Tower1',
@@ -48,6 +64,10 @@ const TOWER_1_DATA = [
     upgradePrice: null,
     attackRange: 0,
     bulletSpriteFrameIndex: 4,
+    bulletSize: {
+      width: 30,
+      height: 38,
+    },
   },
 ];
 const TOWER_2_DATA = [
@@ -60,6 +80,10 @@ const TOWER_2_DATA = [
     upgradePrice: 100,
     attackRange: 1,
     bulletSpriteFrameIndex: 0,
+    bulletSize: {
+      width: 20,
+      height: 40,
+    },
   },
   {
     type: 'Tower2',
@@ -70,6 +94,10 @@ const TOWER_2_DATA = [
     upgradePrice: 200,
     attackRange: 1,
     bulletSpriteFrameIndex: 1,
+    bulletSize: {
+      width: 20,
+      height: 40,
+    },
   },
   {
     type: 'Tower2',
@@ -80,6 +108,10 @@ const TOWER_2_DATA = [
     upgradePrice: 400,
     attackRange: 1,
     bulletSpriteFrameIndex: 2,
+    bulletSize: {
+      width: 20,
+      height: 40,
+    },
   },
   {
     type: 'Tower2',
@@ -90,6 +122,10 @@ const TOWER_2_DATA = [
     upgradePrice: 800,
     attackRange: 1,
     bulletSpriteFrameIndex: 3,
+    bulletSize: {
+      width: 20,
+      height: 40,
+    },
   },
   {
     type: 'Tower2',
@@ -100,6 +136,10 @@ const TOWER_2_DATA = [
     upgradePrice: null,
     attackRange: 1,
     bulletSpriteFrameIndex: 4,
+    bulletSize: {
+      width: 25,
+      height: 55,
+    },
   },
 ];
 

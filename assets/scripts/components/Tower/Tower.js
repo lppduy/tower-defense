@@ -1,5 +1,7 @@
 const Emitter = require('EventEmitter');
 const Key = require('Key');
+const MainEmitter = require('MainEmitter');
+const { GAME_EVENTS } = require('EventCode');
 const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
 cc.Class({
   extends: cc.Component,
@@ -22,6 +24,7 @@ cc.Class({
   onLoad() {
     this.timer = 0;
     this.currentEnemy = null;
+    MainEmitter.instance.registerEvent(GAME_EVENTS.UPGRADE_TOWER, this.upgradeTower.bind(this));
   },
   update(dt) {
     if (!this.currentEnemy) return;
@@ -38,6 +41,7 @@ cc.Class({
     this.targets = [];
     this.type = type;
     this.towerData = this.type === 'Tower1' ? TOWER_1_DATA : TOWER_2_DATA;
+    this.bulletData = { damage: null, spriteFrame: null, size: null };
     this.configTower();
   },
   configTower() {
@@ -47,12 +51,18 @@ cc.Class({
     this.price = curLevelData.price;
     this.attackRange = curLevelData.attackRange;
     this.upgradePrice = curLevelData.upgradePrice;
-    this.bulletSpriteFrameIndex = curLevelData.bulletSpriteFrameIndex;
+    this.bulletData.damage = curLevelData.damage;
+    this.bulletData.size = curLevelData.bulletSize;
+    this.bulletData.spriteFrame = this.bulletSpriteFrames[curLevelData.bulletSpriteFrameIndex];
   },
   upgradeTower() {
-    if (this.level >= this.maxLevel) return;
+    if (this.level >= this.maxLevel) {
+      console.log('Tower max level');
+      return;
+    }
     this.level++;
     this.configTower();
+    console.log('Upgrade tower successfully!');
   },
   onCollisionEnter(other, self) {
     if (other.node.name === 'enemy') {
@@ -88,13 +98,9 @@ cc.Class({
 
     bulletNode.position = cc.v2(bulletPositionInTowers.x, bulletPositionInTowers.y);
     bulletNode.angle = this.node.angle;
+    bulletNode.getComponent('Bullet').configBullet(this.bulletData);
     this.node.parent.addChild(bulletNode);
     bulletNode.getComponent('Bullet').setVelocity();
-    const bulletData = {
-      damage: this.damage,
-      spriteFrame: this.bulletSpriteFrames[this.bulletSpriteFrameIndex],
-    };
-    bulletNode.getComponent('Bullet').configBullet(bulletData);
 
     Emitter.instance.emit(Key.PLAY_SFX, this.shootingSound);
   },

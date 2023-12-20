@@ -33,7 +33,7 @@ cc.Class({
   },
 
   onLoad() {
-    this.coins = 500;
+    this.coins = 5000;
     this.init();
     this.setEvents();
   },
@@ -58,6 +58,7 @@ cc.Class({
     );
     MainEmitter.instance.registerEvent(GAME_EVENTS.ENEMY_KILLED, this.updateCoinsAmount.bind(this));
     MainEmitter.instance.registerEvent(GAME_EVENTS.SELL_TOWER, this.updateCoinsAmount.bind(this));
+    MainEmitter.instance.registerEvent(GAME_EVENTS.REQUEST_UPGRADE_TOWER, this.onRequestUpgradeTower.bind(this));
   },
 
   onMapTouch(e) {
@@ -87,6 +88,15 @@ cc.Class({
       console.log('Not enough coins to buy tower!');
     }
     this.panelCreate.hide();
+  },
+  onRequestUpgradeTower(price) {
+    if (this.coins >= price) {
+      MainEmitter.instance.emit(GAME_EVENTS.UPGRADE_TOWER);
+      this.updateCoinsAmount(-price);
+    } else {
+      console.log('Not enough coins to upgrade tower!');
+    }
+    this.panelUpgrade.hide();
   },
   updateCoinsAmount(amount) {
     this.coins += amount;

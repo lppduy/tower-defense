@@ -33,8 +33,7 @@ cc.Class({
   },
 
   onUpgradeTower() {
-    console.log(this.towerComponent.upgradeTower)
-    this.towerComponent.upgradeTower();
+    MainEmitter.instance.emit(GAME_EVENTS.REQUEST_UPGRADE_TOWER, this.towerComponent.upgradePrice);
     this.hide();
   },
   onSellTower() {

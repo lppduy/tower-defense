@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Tower_2-Bullet_5",
+    "_name": "Tower_2-Bullet",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -115,11 +115,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "speed": 15,
     "damage": 0,
-    "shootingSound": {
-      "__uuid__": "9a8a07e5-8dcd-4d6f-a49f-94905aaa30f2"
-    },
     "_id": ""
   },
   {
@@ -136,7 +132,7 @@
       "x": 0,
       "y": 0
     },
-    "_radius": 20,
+    "_radius": 10,
     "_id": ""
   },
   {

@@ -1,5 +1,5 @@
 const MainEmitter = require('MainEmitter');
-const { GAME_EVENTS, UI_EVENTS } = require('EventCode');
+const { UI_EVENTS } = require('EventCode');
 
 cc.Class({
   extends: cc.Component,
@@ -32,7 +32,7 @@ cc.Class({
     this.showWaveTimeout();
   },
   onUpdateWaveCount(amount) {
-    this.waveAmountLabel.string = `Wave ${amount}/5`;
+    this.waveAmountLabel.string = `Wave ${amount}/10`;
   },
   showWaveTimeout() {
     this.waveTimeoutLabel.string = `Next wave in ${this.timer}s`;

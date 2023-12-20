@@ -1,5 +1,5 @@
 const StateMachine = require("javascript-state-machine");
-const Emitter = require("../Utilities/EventEmitter");
+const Emitter = require("EventEmitter");
 const Key = require("Key");
 
 const STATE = {

@@ -1,7 +1,6 @@
 const Emitter = require('EventEmitter');
 const Key = require('Key');
-const MainEmitter = require('MainEmitter');
-const { GAME_EVENTS } = require('EventCode');
+
 const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
 cc.Class({
   extends: cc.Component,
@@ -24,7 +23,6 @@ cc.Class({
   onLoad() {
     this.timer = 0;
     this.currentEnemy = null;
-    MainEmitter.instance.registerEvent(GAME_EVENTS.UPGRADE_TOWER, this.upgradeTower.bind(this));
   },
   update(dt) {
     if (!this.currentEnemy) return;
@@ -62,7 +60,7 @@ cc.Class({
     }
     this.level++;
     this.configTower();
-    console.log('Upgrade tower successfully!');
+    console.log('Upgrade tower successfully!', this.level);
   },
   onCollisionEnter(other, self) {
     if (other.node.name === 'enemy') {

@@ -23,7 +23,6 @@ cc.Class({
     if (other.node.group === 'enemy') {
       this.node.destroy();
       other.node.getComponent('Enemy').takeDamage(this.damage);
-      console.log(this.damage);
     }
   },
 });

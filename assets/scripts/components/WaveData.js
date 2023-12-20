@@ -2,12 +2,12 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
-    enemy: {
-      default: null,
-      type: cc.Prefab,
+    enemies: {
+      default: [],
+      type: [cc.Prefab],
     },
     enemiesCount: 0,
-    timeout: {default: 10, serializable: true},
+    timeout: { default: 10, serializable: true },
     repeatInterval: 1,
   },
 });

@@ -116,9 +116,9 @@
     },
     "_enabled": true,
     "velocity": 300,
-    "health": 200,
-    "damage": 10,
-    "coins": 10,
+    "health": 1500,
+    "damage": 5,
+    "coins": 500,
     "_rotationSpeed": 300,
     "_id": ""
   },

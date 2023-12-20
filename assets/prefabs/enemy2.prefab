@@ -115,9 +115,9 @@
       "__id__": 1
     },
     "_enabled": true,
-    "velocity": 250,
-    "health": 200,
-    "damage": 10,
+    "velocity": 120,
+    "health": 50,
+    "damage": 1,
     "coins": 10,
     "_rotationSpeed": 300,
     "_id": ""

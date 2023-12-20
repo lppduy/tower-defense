@@ -6,6 +6,7 @@ const GAME_EVENTS = {
   REQUEST_BUY_TOWER: 'request-buy-tower',
   CREATE_TOWER: 'create-tower',
   SELL_TOWER: 'sell-tower',
+  UPGRADE_TOWER: 'upgrade-tower',
 };
 const UI_EVENTS = {
   CREATE_WAVE: 'create-wave',

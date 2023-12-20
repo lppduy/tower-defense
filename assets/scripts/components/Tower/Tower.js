@@ -1,7 +1,6 @@
-const Emitter = require("EventEmitter");
-const Key = require("Key");
-
-const { TOWER_1_DATA, TOWER_2_DATA } = require("TowersData");
+const Emitter = require('EventEmitter');
+const Key = require('Key');
+const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
 cc.Class({
   extends: cc.Component,
 
@@ -13,15 +12,14 @@ cc.Class({
     price: 0,
     upgradePrice: 0,
     bulletPrefab: cc.Prefab,
+    bulletSpriteFrames: [cc.SpriteFrame],
     bulletPosition: cc.Node,
-
     shootingSound: {
       type: cc.AudioClip,
       default: null,
     },
   },
   onLoad() {
-    cc.director.getCollisionManager().enabledDebugDraw = true;
     this.timer = 0;
     this.currentEnemy = null;
   },
@@ -39,7 +37,7 @@ cc.Class({
     this.maxLevel = 5;
     this.targets = [];
     this.type = type;
-    this.towerData = this.type === "Tower1" ? TOWER_1_DATA : TOWER_2_DATA;
+    this.towerData = this.type === 'Tower1' ? TOWER_1_DATA : TOWER_2_DATA;
     this.configTower();
   },
   configTower() {
@@ -49,20 +47,21 @@ cc.Class({
     this.price = curLevelData.price;
     this.attackRange = curLevelData.attackRange;
     this.upgradePrice = curLevelData.upgradePrice;
+    this.bulletSpriteFrameIndex = curLevelData.bulletSpriteFrameIndex;
   },
   upgradeTower() {
-    if (this.level < this.maxLevel) return;
+    if (this.level >= this.maxLevel) return;
     this.level++;
     this.configTower();
   },
   onCollisionEnter(other, self) {
-    if (other.node.name === "enemy") {
+    if (other.node.name === 'enemy') {
       this.targets.push(other.node);
       this.currentEnemy = this.getTarget();
     }
   },
   onCollisionStay(other, self) {
-    if (other.node.name === "enemy") {
+    if (other.node.name === 'enemy') {
       this.lookAtEnemy(this.currentEnemy);
     }
   },
@@ -71,7 +70,7 @@ cc.Class({
     this.currentEnemy = this.getTarget();
   },
   removeTarget(node) {
-    this.targets = this.targets.filter((target) => target !== node);
+    this.targets = this.targets.filter(target => target !== node);
   },
   getTarget() {
     return this.targets[0];
@@ -87,13 +86,15 @@ cc.Class({
       bulletPositionRelativeToTowers
     );
 
-    bulletNode.position = cc.v2(
-      bulletPositionInTowers.x,
-      bulletPositionInTowers.y
-    );
+    bulletNode.position = cc.v2(bulletPositionInTowers.x, bulletPositionInTowers.y);
     bulletNode.angle = this.node.angle;
     this.node.parent.addChild(bulletNode);
-    bulletNode.getComponent("Bullet").setVelocity();
+    bulletNode.getComponent('Bullet').setVelocity();
+    const bulletData = {
+      damage: this.damage,
+      spriteFrame: this.bulletSpriteFrames[this.bulletSpriteFrameIndex],
+    };
+    bulletNode.getComponent('Bullet').configBullet(bulletData);
 
     Emitter.instance.emit(Key.PLAY_SFX, this.shootingSound);
   },

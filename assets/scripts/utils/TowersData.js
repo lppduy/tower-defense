@@ -7,6 +7,7 @@ const TOWER_1_DATA = [
     price: 60,
     upgradePrice: 100,
     attackRange: 0,
+    bulletSpriteFrameIndex: 0,
   },
   {
     type: 'Tower1',
@@ -16,6 +17,7 @@ const TOWER_1_DATA = [
     price: 100,
     upgradePrice: 200,
     attackRange: 0,
+    bulletSpriteFrameIndex: 1,
   },
   {
     type: 'Tower1',
@@ -25,6 +27,7 @@ const TOWER_1_DATA = [
     price: 200,
     upgradePrice: 400,
     attackRange: 0,
+    bulletSpriteFrameIndex: 2,
   },
   {
     type: 'Tower1',
@@ -34,6 +37,7 @@ const TOWER_1_DATA = [
     price: 400,
     upgradePrice: 800,
     attackRange: 0,
+    bulletSpriteFrameIndex: 3,
   },
   {
     type: 'Tower1',
@@ -43,6 +47,7 @@ const TOWER_1_DATA = [
     price: 800,
     upgradePrice: null,
     attackRange: 0,
+    bulletSpriteFrameIndex: 4,
   },
 ];
 const TOWER_2_DATA = [
@@ -54,6 +59,7 @@ const TOWER_2_DATA = [
     price: 60,
     upgradePrice: 100,
     attackRange: 1,
+    bulletSpriteFrameIndex: 0,
   },
   {
     type: 'Tower2',
@@ -63,6 +69,7 @@ const TOWER_2_DATA = [
     price: 100,
     upgradePrice: 200,
     attackRange: 1,
+    bulletSpriteFrameIndex: 1,
   },
   {
     type: 'Tower2',
@@ -72,6 +79,7 @@ const TOWER_2_DATA = [
     price: 200,
     upgradePrice: 400,
     attackRange: 1,
+    bulletSpriteFrameIndex: 2,
   },
   {
     type: 'Tower2',
@@ -81,6 +89,7 @@ const TOWER_2_DATA = [
     price: 400,
     upgradePrice: 800,
     attackRange: 1,
+    bulletSpriteFrameIndex: 3,
   },
   {
     type: 'Tower2',
@@ -90,6 +99,7 @@ const TOWER_2_DATA = [
     price: 800,
     upgradePrice: null,
     attackRange: 1,
+    bulletSpriteFrameIndex: 4,
   },
 ];
 

@@ -3,16 +3,20 @@ cc.Class({
 
   properties: {
     speed: 20,
-    damage: 25,
+    damage: 0,
     shootingSound: {
       default: null,
       type: cc.AudioClip,
     },
   },
-
   update(dt) {
     this.node.x += this.velocity.x;
     this.node.y += this.velocity.y;
+  },
+  configBullet(bulletData) {
+    this.damage = bulletData.damage;
+    this.getComponent(cc.Sprite).spriteFrame = bulletData.spriteFrame
+    
   },
   setVelocity() {
     const azimuth = (this.node.angle - 180) * (Math.PI / 180) - Math.PI / 2;
@@ -23,6 +27,7 @@ cc.Class({
     if (other.node.group === 'enemy') {
       this.node.destroy();
       other.node.getComponent('Enemy').takeDamage(this.damage);
+      console.log(this.damage)
     }
   },
 });

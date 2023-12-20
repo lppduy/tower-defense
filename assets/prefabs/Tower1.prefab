@@ -231,11 +231,28 @@
     "bulletPrefab": {
       "__uuid__": "9c5d62ee-4b6b-4bb0-adeb-b9df3b0ca86c"
     },
+    "bulletSpriteFrames": [
+      {
+        "__uuid__": "8ece90f1-ce01-4b21-b816-f1b456b59d40"
+      },
+      {
+        "__uuid__": "ef8fc1d3-0368-4289-9e2d-497c48d837b0"
+      },
+      {
+        "__uuid__": "ca93b2be-45df-47e4-ad48-848cd64fe57d"
+      },
+      {
+        "__uuid__": "519ff9fd-828f-4fa9-9f2e-7b0c62935e97"
+      },
+      {
+        "__uuid__": "e938b844-5f7b-424d-ab05-2676de1827cd"
+      }
+    ],
     "bulletPosition": {
       "__id__": 2
     },
     "shootingSound": {
-      "__uuid__": "c16624eb-02bd-41c7-91d5-594b58090b00"
+      "__uuid__": "9a8a07e5-8dcd-4d6f-a49f-94905aaa30f2"
     },
     "_id": ""
   },

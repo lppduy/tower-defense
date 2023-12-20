@@ -33,7 +33,8 @@ cc.Class({
   },
 
   onUpgradeTower() {
-    console.log('Upgrade', this.towerComponent);
+    console.log(this.towerComponent.upgradeTower)
+    this.towerComponent.upgradeTower();
     this.hide();
   },
   onSellTower() {

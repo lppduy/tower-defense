@@ -1,5 +1,7 @@
 const MainEmitter = require('MainEmitter');
 const { UI_EVENTS } = require('EventCode');
+const Emitter = require('EventEmitter');
+const Key = require('Key');
 const waveData = require('WaveData');
 
 cc.Class({
@@ -14,6 +16,8 @@ cc.Class({
 
   init(level) {
     this.waveIndex = 0;
+    this.maxWave = 10;
+    this.isLastWave = false;
     this.enemyCount = 0;
     this.isBoss = false;
     this.bossCreated = 0;
@@ -24,11 +28,11 @@ cc.Class({
 
   createWave() {
     const wave = this.wave;
-
     MainEmitter.instance.emit(UI_EVENTS.CREATE_WAVE);
     ++this.waveIndex;
+    this.isLastWave = this.waveIndex === this.maxWave;
     let enemyIndex = 0;
-
+    if (this.waveIndex > this.maxWave) return;
     if (this.waveIndex === 1) {
       this.enemiesCount = 5;
     } else if (this.waveIndex === 2) {
@@ -50,7 +54,6 @@ cc.Class({
   createEnemy(enemies, waveIndex, enemyIndex) {
     const lastEnemyIndex = this.enemiesCount - 1;
 
-    if (waveIndex > 10) return;
     if (
       (waveIndex === 5 && enemyIndex === lastEnemyIndex) ||
       (waveIndex === 10 && enemyIndex === lastEnemyIndex)
@@ -104,6 +107,10 @@ cc.Class({
     this.node.emit(eventName, enemyComponent);
     this.items = this.items.filter(item => item !== enemyComponent);
     if (!this.items.length) {
+      if (this.isLastWave) {
+        Emitter.instance.emit(Key.WIN_GAME);
+        return;
+      }
       this.createWave();
     }
   },

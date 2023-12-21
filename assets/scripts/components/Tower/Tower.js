@@ -23,6 +23,7 @@ cc.Class({
     levelTowers: [cc.Node],
   },
   onLoad() {
+    cc.director.getCollisionManager().enabledDebugDraw = true
     this.timer = 0;
     this.currentEnemy = null;
   },
@@ -67,13 +68,13 @@ cc.Class({
     console.log('Upgrade tower successfully!', this.level);
   },
   onCollisionEnter(other, self) {
-    if (other.node.name === 'enemy') {
+    if (other.node.group === 'enemy') {
       this.targets.push(other.node);
       this.setTarget();
     }
   },
   onCollisionStay(other, self) {
-    if (other.node.name === 'enemy') {
+    if (other.node.group === 'enemy') {
       this.lookAtEnemy(this.currentEnemy);
     }
   },

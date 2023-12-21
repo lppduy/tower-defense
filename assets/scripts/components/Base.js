@@ -17,19 +17,21 @@ cc.Class({
 
   onLoad() {
     this.curHealth = this.maxHealth;
+    this.isDestroyed = false;
     MainEmitter.instance.registerEvent(GAME_EVENTS.HIT_BASE, this.onHitBase.bind(this));
   },
-  
+
   onHitBase(damage) {
     this.curHealth -= damage;
     this.healthBar.progress = this.curHealth / this.maxHealth;
-    if (this.curHealth <= 0) {
+    if (this.curHealth <= 0 && !this.isDestroyed) {
+      this.isDestroyed = true;
       Emitter.instance.emit(Key.LOSE_GAME);
       Emitter.instance.emit(Key.PLAY_SFX, this.explosionSound);
       this.node.getChildByName('Base Explosion').active = true;
       this.healthBar.active = false;
-      MainEmitter.instance.emit(GAME_EVENTS.END_GAME);
       this.node.getChildByName('Sprite').color = cc.Color.GRAY;
+      MainEmitter.instance.emit(GAME_EVENTS.END_GAME);
     }
   },
 });

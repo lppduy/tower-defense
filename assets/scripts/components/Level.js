@@ -94,8 +94,8 @@ cc.Class({
   },
   onRequestUpgradeTower(towerComponent) {
     if (this.coins >= towerComponent.upgradePrice) {
-      towerComponent.upgradeTower();
       this.updateCoinsAmount(-towerComponent.upgradePrice);
+      towerComponent.upgradeTower();
     } else {
       console.log('Not enough coins to upgrade tower!');
     }

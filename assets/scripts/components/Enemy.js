@@ -102,6 +102,8 @@ cc.Class({
   onCollisionEnter(other, self) {
     if (other.node.group === 'base') {
       MainEmitter.instance.emit(GAME_EVENTS.HIT_BASE, this.damage);
+      self.node.emit('finished');
+      self.node.destroy();
     }
   },
 });

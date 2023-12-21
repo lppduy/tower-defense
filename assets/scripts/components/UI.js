@@ -17,6 +17,7 @@ cc.Class({
     this.coins = null;
     this.coinAmountLabel.string = this.coins;
     this.timer = 10;
+    this.waveAmountLabel.string = `Wave 0`;
     MainEmitter.instance.registerEvent(UI_EVENTS.CREATE_WAVE, this.onCreateWave.bind(this));
     MainEmitter.instance.registerEvent(
       UI_EVENTS.UPDATE_WAVE_COUNT,
@@ -35,7 +36,7 @@ cc.Class({
   },
 
   onUpdateWaveCount(amount) {
-    this.waveAmountLabel.string = `Wave ${amount}/10`;
+    this.waveAmountLabel.string = `Wave ${amount}`;
   },
 
   showWaveTimeout() {

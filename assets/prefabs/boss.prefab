@@ -115,7 +115,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "velocity": 300,
+    "velocity": 50,
     "health": 1500,
     "damage": 5,
     "coins": 500,

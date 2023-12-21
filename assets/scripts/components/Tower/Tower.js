@@ -20,7 +20,7 @@ cc.Class({
       default: null,
     },
 
-    levelTowers:[cc.Node],
+    levelTowers: [cc.Node],
   },
   onLoad() {
     this.timer = 0;
@@ -60,7 +60,7 @@ cc.Class({
       console.log('Tower max level');
       return;
     }
-    this.levelTowers[this.level-1].active = false;
+    this.levelTowers[this.level - 1].active = false;
     this.levelTowers[this.level].active = true;
     this.level++;
     this.configTower();
@@ -69,7 +69,7 @@ cc.Class({
   onCollisionEnter(other, self) {
     if (other.node.name === 'enemy') {
       this.targets.push(other.node);
-      this.currentEnemy = this.getTarget();
+      this.setTarget();
     }
   },
   onCollisionStay(other, self) {
@@ -79,13 +79,13 @@ cc.Class({
   },
   onCollisionExit(other, self) {
     this.removeTarget(other.node);
-    this.currentEnemy = this.getTarget();
+    this.setTarget();
   },
   removeTarget(node) {
     this.targets = this.targets.filter(target => target !== node);
   },
-  getTarget() {
-    return this.targets[0];
+  setTarget() {
+    this.currentEnemy = this.targets[0];
   },
 
   shoot() {

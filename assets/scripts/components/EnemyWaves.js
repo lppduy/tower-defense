@@ -43,13 +43,14 @@ cc.Class({
       },
       wave.repeatInterval,
       this.enemiesCount - 1,
-      wave.timeout,
+      wave.timeout
     );
   },
 
   createEnemy(enemies, waveIndex, enemyIndex) {
     const lastEnemyIndex = this.enemiesCount - 1;
 
+    if (waveIndex > 10) return;
     if (
       (waveIndex === 5 && enemyIndex === lastEnemyIndex) ||
       (waveIndex === 10 && enemyIndex === lastEnemyIndex)
@@ -87,7 +88,7 @@ cc.Class({
       () => {
         this.onEnemyRemoved('enemy-killed', enemyComponent);
       },
-      this,
+      this
     );
 
     enemyNode.once(
@@ -95,7 +96,7 @@ cc.Class({
       () => {
         this.onEnemyRemoved('enemy-finished', enemyComponent);
       },
-      this,
+      this
     );
   },
 

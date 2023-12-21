@@ -19,10 +19,12 @@ cc.Class({
     this.curHealth = this.maxHealth;
     MainEmitter.instance.registerEvent(GAME_EVENTS.HIT_BASE, this.onHitBase.bind(this));
   },
+  
   onHitBase(damage) {
     this.curHealth -= damage;
     this.healthBar.progress = this.curHealth / this.maxHealth;
     if (this.curHealth <= 0) {
+      Emitter.instance.emit(Key.LOSE_GAME);
       Emitter.instance.emit(Key.PLAY_SFX, this.explosionSound);
       this.node.getChildByName('Base Explosion').active = true;
       this.healthBar.active = false;

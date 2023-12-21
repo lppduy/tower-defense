@@ -17,4 +17,5 @@ const UI_EVENTS = {
 const SOUND_EVENTS = {
   TOWER_SHOOT: 'tower-shoot',
 };
-module.exports = { GAME_EVENTS, UI_EVENTS, SOUND_EVENTS };
+
+module.exports = { GAME_EVENTS, UI_EVENTS, SOUND_EVENTS};

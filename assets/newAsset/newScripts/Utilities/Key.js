@@ -10,4 +10,7 @@ module.exports = {
     CHANGE_SFX_VOLUME:'changeSfxVolume',
     CHANGE_MUSIC_VOLUME:'changeMusicVolume',
     //#endregion
+
+    WIN_GAME:'victory',
+    LOSE_GAME:'defeat',
 }

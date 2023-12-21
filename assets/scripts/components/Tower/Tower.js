@@ -19,6 +19,8 @@ cc.Class({
       type: cc.AudioClip,
       default: null,
     },
+
+    levelTowers:[cc.Node],
   },
   onLoad() {
     this.timer = 0;
@@ -58,6 +60,8 @@ cc.Class({
       console.log('Tower max level');
       return;
     }
+    this.levelTowers[this.level-1].active = false;
+    this.levelTowers[this.level].active = true;
     this.level++;
     this.configTower();
     console.log('Upgrade tower successfully!', this.level);

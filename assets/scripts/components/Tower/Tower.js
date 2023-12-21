@@ -23,7 +23,6 @@ cc.Class({
     levelTowers: [cc.Node],
   },
   onLoad() {
-    cc.director.getCollisionManager().enabledDebugDraw = true
     this.timer = 0;
     this.currentEnemy = null;
   },

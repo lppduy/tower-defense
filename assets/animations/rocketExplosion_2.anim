@@ -1,0 +1,91 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "rocketExplosion_2",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 11,
+  "speed": 2,
+  "wrapMode": 0,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "3e13668c-92e6-4d0e-8bb4-e14197fee585"
+            }
+          },
+          {
+            "frame": 0.09090909090909091,
+            "value": {
+              "__uuid__": "f0e9675b-ee13-4981-8fd2-8104bc346c92"
+            }
+          },
+          {
+            "frame": 0.18181818181818182,
+            "value": {
+              "__uuid__": "eed2aa31-62ac-487a-a2eb-e860ca8ac780"
+            }
+          },
+          {
+            "frame": 0.2727272727272727,
+            "value": {
+              "__uuid__": "8c04d63e-6ad8-4cf9-b4ea-673fd2322ac1"
+            }
+          },
+          {
+            "frame": 0.36363636363636365,
+            "value": {
+              "__uuid__": "2b964e98-7a0b-4fe7-8ccf-2f8c5c3ea982"
+            }
+          },
+          {
+            "frame": 0.45454545454545453,
+            "value": {
+              "__uuid__": "f6bcd702-d1cd-4d1b-aebd-a3f38ec02bf3"
+            }
+          },
+          {
+            "frame": 0.5454545454545454,
+            "value": {
+              "__uuid__": "ce45f44c-11a8-472a-8ef0-73acd716ddad"
+            }
+          },
+          {
+            "frame": 0.6363636363636364,
+            "value": {
+              "__uuid__": "16508d1c-6bd2-4fa6-8bfb-041b0045dc54"
+            }
+          },
+          {
+            "frame": 0.7272727272727273,
+            "value": {
+              "__uuid__": "c7f8ef6b-4e42-415d-815e-5d3b09cbf0ea"
+            }
+          },
+          {
+            "frame": 0.8181818181818182,
+            "value": {
+              "__uuid__": "dd036f2f-0781-4bf3-b13f-c0e006f70678"
+            }
+          },
+          {
+            "frame": 0.9090909090909091,
+            "value": {
+              "__uuid__": "25366c38-045d-4d95-9b7c-df3c3f67e1ba"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0,
+      "func": "onExplosionBase",
+      "params": []
+    }
+  ]
+}

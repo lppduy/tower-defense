@@ -38,7 +38,6 @@ cc.Class({
     const towerComponent = this.curTowerNode.getComponent('Tower');
     this.towerComponents.push(towerComponent);
     this.node.addChild(this.curTowerNode);
-    console.log(this.towerComponents);
   },
   onDestroyTower(towerComponent) {
     this.removeTowerComponent(towerComponent);

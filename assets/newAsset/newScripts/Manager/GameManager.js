@@ -12,7 +12,7 @@ const STATE = {
 cc.Class({
   extends: cc.Component,
   properties: {
-    HP: require("Base"),
+    UI: require("UI"),
     mSounds: {
       type: cc.AudioClip,
       default: [],
@@ -44,17 +44,15 @@ cc.Class({
         onGoOver: this._onGameOver,
       },
     });
+
+    Emitter.instance.registerOnce(Key.WIN_GAME, this.onCompleteGame.bind(this));
+    Emitter.instance.registerOnce(Key.LOSE_GAME, this.onGameOver.bind(this));
   },
 
   start() {
-    this.schedule(() => {
-      if (this.HP.curHealth > 0) {
-        cc.log("playing");
-      } else {
-        cc.log("end Game");
-        this.unscheduleAllCallbacks();
-      }
-    }, 1);
+    this.fsm["goStart"]();
+    // this.fsm["goComplete"]();
+    // this.fsm["goOver"]();
   },
 
   onStartGame() {
@@ -62,10 +60,10 @@ cc.Class({
   },
 
   onCompleteGame() {
-    cc.log("complete wave");
+    this.UI.completeGame();
   },
 
   onGameOver() {
-    cc.log("game over");
+    this.UI.gameOver();
   },
 });

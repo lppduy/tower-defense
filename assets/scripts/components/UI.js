@@ -8,6 +8,9 @@ cc.Class({
     coinAmountLabel: cc.Label,
     waveAmountLabel: cc.Label,
     waveTimeoutLabel: cc.Label,
+
+    winPanel:cc.Node,
+    losePanel:cc.Node,
   },
 
   onLoad() {
@@ -27,18 +30,20 @@ cc.Class({
     this.showWaveTimeout();
   },
 
-  start() {},
   onCreateWave() {
     this.showWaveTimeout();
   },
+
   onUpdateWaveCount(amount) {
     this.waveAmountLabel.string = `Wave ${amount}/10`;
   },
+
   showWaveTimeout() {
     this.waveTimeoutLabel.string = `Next wave in ${this.timer}s`;
     this.waveTimeoutLabel.node.active = true;
     this.schedule(this.countDown, 1);
   },
+
   countDown() {
     if (this.timer === 1) {
       this.waveTimeoutLabel.node.active = false;
@@ -49,8 +54,17 @@ cc.Class({
     this.timer--;
     this.waveTimeoutLabel.string = `Next wave in ${this.timer}s`;
   },
+
   onUpdateCoinsAmount(amount) {
     this.coins = amount;
     this.coinAmountLabel.string = this.coins;
   },
+
+  completeGame(){
+    this.winPanel.active = true;
+  },
+
+  gameOver(){
+    this.losePanel.active = true;
+  }
 });

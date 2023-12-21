@@ -28,10 +28,16 @@
       },
       {
         "__id__": 4
+      },
+      {
+        "__id__": 5
+      },
+      {
+        "__id__": 6
       }
     ],
     "_prefab": {
-      "__id__": 5
+      "__id__": 7
     },
     "_opacity": 255,
     "_color": {
@@ -72,7 +78,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "groupIndex": 4,
+    "groupIndex": 5,
     "_id": ""
   },
   {
@@ -117,6 +123,9 @@
     "_enabled": true,
     "speed": 20,
     "damage": 0,
+    "explosionSound": {
+      "__uuid__": "c61a8350-b800-409f-b845-cf361de78986"
+    },
     "_id": ""
   },
   {
@@ -126,14 +135,54 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
-    "tag": 0,
+    "_enabled": false,
+    "tag": 2,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
       "y": 0
     },
-    "_radius": 1,
+    "_radius": 200,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.BoxCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "tag": 1,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 1,
+      "height": 1
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "e853362c-7178-4d06-8999-721fd68aa129"
+    },
+    "_clips": [
+      {
+        "__uuid__": "e853362c-7178-4d06-8999-721fd68aa129"
+      }
+    ],
+    "playOnLoad": false,
     "_id": ""
   },
   {

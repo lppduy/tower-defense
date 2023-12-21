@@ -14,6 +14,7 @@
       true,
       false,
       true,
+      true,
       true
     ],
     [
@@ -26,6 +27,14 @@
       false,
       false,
       true,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      true,
+      false,
       false,
       false
     ]
@@ -50,7 +59,8 @@
     "tower",
     "enemy",
     "base",
-    "bullet"
+    "bullet",
+    "rocket"
   ],
   "last-module-event-record-time": 1703079603893,
   "simulator-orientation": false,

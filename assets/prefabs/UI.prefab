@@ -28,7 +28,7 @@
       }
     ],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 21
@@ -240,7 +240,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "beZm7h4k5EqZL/vkBU5K2b",
     "sync": false
@@ -341,7 +341,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "dbfrHvqqpMkIVz8wN0MPed",
     "sync": false
@@ -352,7 +352,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "8fb3EHVLFMMJBL36LvVBp1",
     "sync": false
@@ -518,7 +518,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "adDvWqkaxAhZcQfEr7Yn9m",
     "sync": false
@@ -551,7 +551,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100.49,
+      "width": 80.47,
       "height": 30.24
     },
     "_anchorPoint": {
@@ -597,8 +597,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "Wave 1/5",
-    "_N$string": "Wave 1/5",
+    "_string": "Wave 0",
+    "_N$string": "Wave 0",
     "_fontSize": 24,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -619,7 +619,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "30Whz/REZIMoG2f1fmzqIO",
     "sync": false
@@ -630,7 +630,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "32uc8bgNZPx5tklogEBXGY",
     "sync": false
@@ -731,7 +731,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "81DwVnoB5C37jW65ccqguG",
     "sync": false
@@ -753,6 +753,8 @@
     "waveTimeoutLabel": {
       "__id__": 19
     },
+    "winPanel": null,
+    "losePanel": null,
     "_id": ""
   },
   {
@@ -761,7 +763,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5743acc1-167f-4430-8258-0101a16e6249"
     },
     "fileId": "0dFLvEHoREk6BgLAxpi+Id",
     "sync": false

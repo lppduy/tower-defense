@@ -547,6 +547,9 @@
     },
     "maxHealth": 50,
     "curHealth": 0,
+    "explosionSound": {
+      "__uuid__": "a2520173-b36a-4c2f-8df0-51342cbff528"
+    },
     "_id": ""
   },
   {
@@ -560,8 +563,8 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -35,
+      "y": 9
     },
     "_size": {
       "__type__": "cc.Size",

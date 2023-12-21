@@ -9,8 +9,8 @@ cc.Class({
     waveAmountLabel: cc.Label,
     waveTimeoutLabel: cc.Label,
 
-    winPanel:cc.Node,
-    losePanel:cc.Node,
+    winPanel: cc.Node,
+    losePanel: cc.Node,
   },
 
   onLoad() {
@@ -61,11 +61,11 @@ cc.Class({
     this.coinAmountLabel.string = this.coins;
   },
 
-  completeGame(){
+  completeGame() {
     this.winPanel.active = true;
   },
 
-  gameOver(){
+  gameOver() {
     this.losePanel.active = true;
-  }
+  },
 });

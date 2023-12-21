@@ -13,7 +13,9 @@ cc.Class({
       type: waveData,
     },
   },
-
+  onLoad() {
+    Emitter.instance.registerOnce(Key.LOSE_GAME, () => (this.waveIndex = this.maxWave + 1));
+  },
   init(level) {
     this.waveIndex = 0;
     this.maxWave = 10;
@@ -27,12 +29,12 @@ cc.Class({
   },
 
   createWave() {
-    const wave = this.wave;
-    MainEmitter.instance.emit(UI_EVENTS.CREATE_WAVE);
     ++this.waveIndex;
-    this.isLastWave = this.waveIndex === this.maxWave;
-    let enemyIndex = 0;
     if (this.waveIndex > this.maxWave) return;
+    const wave = this.wave;
+    let enemyIndex = 0;
+    this.isLastWave = this.waveIndex === this.maxWave;
+    MainEmitter.instance.emit(UI_EVENTS.CREATE_WAVE);
     if (this.waveIndex === 1) {
       this.enemiesCount = 5;
     } else if (this.waveIndex === 2) {

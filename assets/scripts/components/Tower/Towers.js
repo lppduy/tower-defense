@@ -38,6 +38,7 @@ cc.Class({
     const towerComponent = this.curTowerNode.getComponent('Tower');
     this.towerComponents.push(towerComponent);
     this.node.addChild(this.curTowerNode);
+    console.log(this.towerComponents);
   },
   onDestroyTower(towerComponent) {
     this.removeTowerComponent(towerComponent);
@@ -50,11 +51,13 @@ cc.Class({
     );
   },
   removeTowerComponent(tower) {
-    this.towerComponents = this.towerComponents.filter(
-      towerComponent =>
-        towerComponent.coordinates.x !== tower.coordinates.x &&
+    this.towerComponents = this.towerComponents.filter(towerComponent => {
+      return (
+        towerComponent.coordinates.x !== tower.coordinates.x ||
         towerComponent.coordinates.y !== tower.coordinates.y
-    );
+      );
+    });
     tower.node.destroy();
+    this.curTowerNode = null;
   },
 });

@@ -3617,6 +3617,9 @@
     "mMenuMusic": {
       "__uuid__": "98f00875-52f1-489f-b9bc-f2810fb6e084"
     },
+    "mClickSound": {
+      "__uuid__": "988e1304-372d-4efd-8804-1236a73499d0"
+    },
     "_id": "7dBPPmkBZIT5Ct1/bLRLzS"
   },
   {

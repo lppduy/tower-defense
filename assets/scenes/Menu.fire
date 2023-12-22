@@ -92,8 +92,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1024,
-      "height": 576
+      "width": 1280,
+      "height": 720
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -102,8 +102,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 512,
-      "y": 288,
+      "x": 640,
+      "y": 360,
       "z": 0
     },
     "_scale": {
@@ -162,7 +162,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 323.02747561159566
+      "z": 474.0000604557047
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -462,8 +462,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1024,
-      "height": 576
+      "width": 1280,
+      "height": 720
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2113,7 +2113,7 @@
     "duration": 0.1,
     "zoomScale": 0.9,
     "clickEvents": [],
-    "_N$interactable": true,
+    "_N$interactable": false,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
     "transition": 3,
@@ -2268,7 +2268,7 @@
       "__id__": 56
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_level": 2,
     "_components": [
       {
@@ -2285,8 +2285,8 @@
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 0,
-      "b": 0,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -2339,7 +2339,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "30b97149-9603-4261-ae62-c779059d147a"
+      "__uuid__": "018f7581-4770-48ec-aeeb-a5adfeefd921"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2401,7 +2401,7 @@
       "__id__": 56
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_level": 5,
     "_components": [
       {
@@ -2505,7 +2505,7 @@
     "duration": 0.1,
     "zoomScale": 0.9,
     "clickEvents": [],
-    "_N$interactable": true,
+    "_N$interactable": false,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
     "transition": 3,
@@ -3640,8 +3640,8 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 1024,
-      "height": 576
+      "width": 1280,
+      "height": 720
     },
     "_fitWidth": true,
     "_fitHeight": true,

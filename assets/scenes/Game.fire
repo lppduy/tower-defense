@@ -264,7 +264,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 323.02747561159566
+      "z": 474.0000604557047
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -3994,7 +3994,7 @@
     "healthBar": {
       "__id__": 111
     },
-    "maxHealth": 20,
+    "maxHealth": 1,
     "curHealth": 0,
     "explosionSound": {
       "__uuid__": "a2520173-b36a-4c2f-8df0-51342cbff528"

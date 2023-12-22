@@ -1,5 +1,8 @@
 const MainEmitter = require('MainEmitter');
 const { GAME_EVENTS } = require('EventCode');
+
+const Emitter = require("EventEmitter");
+const Key = require("Key");
 cc.Class({
   extends: cc.Component,
 
@@ -29,10 +32,12 @@ cc.Class({
   hide() {
     this.node.active = false;
   },
+  
   onPanelClick(e) {
     MainEmitter.instance.emit(GAME_EVENTS.INSTANTIATE_TOWER, {
       towerKey: e.target.name,
       towerCoordinates: this.coordinates,
     })
+    Emitter.instance.emit(Key.BUILD_TURRET);
   },
 });

@@ -2,10 +2,10 @@ const Emitter = require("EventEmitter");
 const Key = require("Key");
 
 const soundConfig = {
-  sfxVolume: 0,
-  musicVolume: 0,
-  mouseSpeed:0,
+  sfxVolume: 0.5,
+  musicVolume: 0.5,
 };
+
 cc.Class({
   extends: cc.Component,
   properties: {
@@ -17,6 +17,7 @@ cc.Class({
     Emitter.instance.emit(Key.CHANGE_SFX_VOLUME, this.sfxVolumeSlider.progress);
     soundConfig.sfxVolume = this.sfxVolumeSlider.progress;
   },
+
   ChangeMusicVolume() {
     Emitter.instance.emit(
       Key.CHANGE_MUSIC_VOLUME,

@@ -34,14 +34,17 @@ cc.Class({
     this.curTowerNode = towerNode;
     MainEmitter.instance.emit(GAME_EVENTS.REQUEST_BUY_TOWER, towerComponent.price);
   },
+  
   onCreateTower() {
     const towerComponent = this.curTowerNode.getComponent('Tower');
     this.towerComponents.push(towerComponent);
     this.node.addChild(this.curTowerNode);
   },
+
   onDestroyTower(towerComponent) {
     this.removeTowerComponent(towerComponent);
   },
+
   getByCoordinates(coordinates) {
     return this.towerComponents.find(
       towerComponent =>
@@ -49,6 +52,7 @@ cc.Class({
         towerComponent.coordinates.y === coordinates.y
     );
   },
+
   removeTowerComponent(tower) {
     this.towerComponents = this.towerComponents.filter(towerComponent => {
       return (

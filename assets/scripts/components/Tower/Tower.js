@@ -2,6 +2,9 @@ const Emitter = require('EventEmitter');
 const Key = require('Key');
 
 const { TOWER_1_DATA, TOWER_2_DATA } = require('TowersData');
+const MainEmitter = require('MainEmitter');
+const { GAME_EVENTS } = require('EventCode');
+
 cc.Class({
   extends: cc.Component,
 

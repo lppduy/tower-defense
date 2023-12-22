@@ -6,6 +6,7 @@ const Towers = require('Towers');
 const PanelUpgrade = require('PanelUpgrade');
 const EnemyWaves = require('EnemyWaves');
 
+
 cc.Class({
   extends: cc.Component,
 
@@ -83,6 +84,7 @@ cc.Class({
       }
     }
   },
+
   onRequestBuyTower(price) {
     if (this.coins >= price) {
       MainEmitter.instance.emit(GAME_EVENTS.CREATE_TOWER);
@@ -92,6 +94,7 @@ cc.Class({
     }
     this.panelCreate.hide();
   },
+
   onRequestUpgradeTower(towerComponent) {
     if (this.coins >= towerComponent.upgradePrice) {
       this.updateCoinsAmount(-towerComponent.upgradePrice);

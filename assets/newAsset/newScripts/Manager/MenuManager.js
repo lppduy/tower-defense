@@ -1,8 +1,7 @@
 const Emitter = require('EventEmitter');
 const Key = require("Key");
+const data = require('SettingController');
 
-//define value below
-const data = require('SettingController')
 cc.Class({
     extends: cc.Component,
 
@@ -27,7 +26,6 @@ cc.Class({
     onStartGame(){
         Emitter.instance.emit(Key.PLAY_SFX, this.mClickSound);
         cc.director.loadScene('Game', ()=>{
-            cc.log(data);
             Emitter.instance.emit(Key.SEND_DATA, data);
         });
     },

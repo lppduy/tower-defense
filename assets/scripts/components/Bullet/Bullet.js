@@ -25,27 +25,30 @@ cc.Class({
   },
 
   onCollisionEnter(other, self) {
-    if (other.node.group !== 'enemy') return;
+    if (other.node.group !== "enemy") return;
 
-    if (self.node.group === 'bullet') {
+    if (self.node.group === "bullet") {
       this.handleBulletCollision(other);
     }
-    if (self.node.group === 'rocket' && self.tag === 1) {
+    if (self.node.group === "rocket" && self.tag === 1) {
       this.handleRocketCollision();
     }
-    if (self.node.group === 'rocket' && self.tag === 2) {
+    if (self.node.group === "rocket" && self.tag === 2) {
       this.handleRocketExplosion(other);
     }
   },
 
   setVelocity() {
     const azimuth = (this.node.angle - 180) * (Math.PI / 180) - Math.PI / 2;
-    this.velocity = cc.v2(Math.cos(azimuth) * this.speed, Math.sin(azimuth) * this.speed);
+    this.velocity = cc.v2(
+      Math.cos(azimuth) * this.speed,
+      Math.sin(azimuth) * this.speed
+    );
   },
 
   handleBulletCollision(other) {
     this.node.destroy();
-    other.node.getComponent('Enemy').takeDamage(this.damage);
+    other.node.getComponent("Enemy").takeDamage(this.damage);
   },
 
   handleRocketCollision() {
@@ -58,7 +61,7 @@ cc.Class({
   },
 
   handleRocketExplosion(other) {
-    other.node.getComponent('Enemy').takeDamage(this.damage);
+    other.node.getComponent("Enemy").takeDamage(this.damage);
   },
 
   destroyBullet() {
@@ -68,8 +71,8 @@ cc.Class({
   playExplosionAnimation() {
     this.node.scale = 0.5;
     const rocketAnim = this.node.getComponent(cc.Animation);
-    rocketAnim.on('play', this.playExplosionSound, this);
-    rocketAnim.on('finished', this.destroyBullet, this);
+    rocketAnim.on("play", this.playExplosionSound, this);
+    rocketAnim.on("finished", this.destroyBullet, this);
     rocketAnim.play(rocketAnim.defaultClip.name);
   },
 

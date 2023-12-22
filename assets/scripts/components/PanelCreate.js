@@ -24,6 +24,8 @@ cc.Class({
     this.node.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
+    this.setCoinLabel(this.panel1, 60);
+    this.setCoinLabel(this.panel2, 60);
     this.node.active = true;
   },
   hide() {
@@ -33,6 +35,10 @@ cc.Class({
     MainEmitter.instance.emit(GAME_EVENTS.INSTANTIATE_TOWER, {
       towerKey: e.target.name,
       towerCoordinates: this.coordinates,
-    })
+    });
+  },
+  setCoinLabel(towerPanelNode, coinAmount) {
+    const coinLabel = towerPanelNode.getChildByName('Coin Amount').getComponent(cc.Label);
+    coinLabel.string = coinAmount;
   },
 });

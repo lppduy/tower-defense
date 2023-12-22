@@ -108,6 +108,7 @@ cc.Class({
   },
 
   lookAtEnemy(targetNode) {
+    if (!targetNode) return;
     const targetPosition = cc.v2(targetNode.x, targetNode.y);
     const towerPosition = cc.v2(this.node.x, this.node.y);
     const direction = targetPosition.sub(towerPosition);

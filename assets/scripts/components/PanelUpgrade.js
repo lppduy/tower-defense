@@ -46,6 +46,13 @@ cc.Class({
   },
   setCoinLabel(panelNode, coinAmount) {
     const coinLabel = panelNode.getChildByName('Coin Amount').getComponent(cc.Label);
-    coinLabel.string = coinAmount;
+    const buttonNode = panelNode.getComponent(cc.Button);
+    if (!coinAmount) {
+      coinLabel.string = 'MAX LV';
+      buttonNode.interactable = false;
+    } else {
+      coinLabel.string = coinAmount;
+      buttonNode.interactable = true;
+    }
   },
 });

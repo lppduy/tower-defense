@@ -222,7 +222,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "velocity": 50,
+    "velocity": 60,
     "health": 1500,
     "damage": 5,
     "coins": 500,

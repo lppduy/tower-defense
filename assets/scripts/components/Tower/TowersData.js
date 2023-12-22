@@ -9,8 +9,8 @@ const TOWER_1_DATA = [
     attackRange: 0,
     bulletSpriteFrameIndex: 0,
     bulletSize: {
-      width: 20,
-      height: 20,
+      width: 30,
+      height: 30,
     },
   },
   {
@@ -61,12 +61,12 @@ const TOWER_1_DATA = [
     damage: 100,
     reloadTime: 1,
     price: 800,
-    upgradePrice: null,
+    upgradePrice: '',
     attackRange: 0,
     bulletSpriteFrameIndex: 4,
     bulletSize: {
-      width: 30,
-      height: 38,
+      width: 32,
+      height: 40,
     },
   },
 ];
@@ -95,8 +95,8 @@ const TOWER_2_DATA = [
     attackRange: 1,
     bulletSpriteFrameIndex: 1,
     bulletSize: {
-      width: 20,
-      height: 40,
+      width: 35,
+      height: 50,
     },
   },
   {
@@ -109,8 +109,8 @@ const TOWER_2_DATA = [
     attackRange: 1,
     bulletSpriteFrameIndex: 2,
     bulletSize: {
-      width: 20,
-      height: 40,
+      width: 30,
+      height: 45,
     },
   },
   {
@@ -123,8 +123,8 @@ const TOWER_2_DATA = [
     attackRange: 1,
     bulletSpriteFrameIndex: 3,
     bulletSize: {
-      width: 20,
-      height: 40,
+      width: 35,
+      height: 50,
     },
   },
   {
@@ -133,11 +133,11 @@ const TOWER_2_DATA = [
     damage: 80,
     reloadTime: 2,
     price: 800,
-    upgradePrice: null,
+    upgradePrice: '',
     attackRange: 1,
     bulletSpriteFrameIndex: 4,
     bulletSize: {
-      width: 25,
+      width: 35,
       height: 55,
     },
   },

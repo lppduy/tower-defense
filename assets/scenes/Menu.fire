@@ -162,7 +162,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 473.70949845360315
+      "z": 549.0601059993342
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -2613,7 +2613,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 173.34,
+      "width": 187.33,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2661,11 +2661,13 @@
     "_useOriginalSize": false,
     "_string": "SETTING",
     "_N$string": "SETTING",
-    "_fontSize": 40,
+    "_fontSize": 50,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "3c45135c-2ac8-4667-b35e-37c3086144bf"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_N$horizontalAlign": 1,
@@ -3618,7 +3620,7 @@
       "__uuid__": "98f00875-52f1-489f-b9bc-f2810fb6e084"
     },
     "mClickSound": {
-      "__uuid__": "988e1304-372d-4efd-8804-1236a73499d0"
+      "__uuid__": "beb0e262-8e4f-4194-9727-9b05fe2fd1e0"
     },
     "_id": "7dBPPmkBZIT5Ct1/bLRLzS"
   },

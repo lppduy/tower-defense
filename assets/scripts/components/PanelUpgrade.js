@@ -1,5 +1,8 @@
 const MainEmitter = require('MainEmitter');
 const { GAME_EVENTS } = require('EventCode');
+
+const Emitter = require("EventEmitter");
+const Key = require("Key");
 cc.Class({
   extends: cc.Component,
 
@@ -35,10 +38,12 @@ cc.Class({
   },
 
   onUpgradeTower() {
+    Emitter.instance.emit(Key.UPGRADE_TURRET_SOUND);
     MainEmitter.instance.emit(GAME_EVENTS.REQUEST_UPGRADE_TOWER, this.towerComponent);
     this.hide();
   },
   onSellTower() {
+    Emitter.instance.emit(Key.SELL_TURRET_SOUND);
     const coinsAmount = Math.trunc(this.towerComponent.price / 2);
     MainEmitter.instance.emit(GAME_EVENTS.SELL_TOWER, coinsAmount);
     MainEmitter.instance.emit(GAME_EVENTS.DESTROY_TOWER, this.towerComponent);

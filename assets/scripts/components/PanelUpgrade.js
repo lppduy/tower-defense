@@ -4,8 +4,8 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
-    upgradeBtn: cc.Node,
-    sellBtn: cc.Node,
+    upgradePanel: cc.Node,
+    sellPanel: cc.Node,
   },
 
   init(map) {
@@ -15,8 +15,8 @@ cc.Class({
       y: 0,
     };
     this.towerComponent = null;
-    this.upgradeBtn.on('touchend', this.onUpgradeTower, this);
-    this.sellBtn.on('touchend', this.onSellTower, this);
+    this.upgradePanel.on('touchend', this.onUpgradeTower, this);
+    this.sellPanel.on('touchend', this.onSellTower, this);
   },
 
   show(coordinates, towerComponent) {
@@ -26,6 +26,8 @@ cc.Class({
     this.node.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
+    this.setCoinLabel(this.upgradePanel, towerComponent.upgradePrice);
+    this.setCoinLabel(this.sellPanel, Math.trunc(towerComponent.price / 2));
     this.node.active = true;
   },
   hide() {
@@ -41,5 +43,9 @@ cc.Class({
     MainEmitter.instance.emit(GAME_EVENTS.SELL_TOWER, coinsAmount);
     MainEmitter.instance.emit(GAME_EVENTS.DESTROY_TOWER, this.towerComponent);
     this.hide();
+  },
+  setCoinLabel(panelNode, coinAmount) {
+    const coinLabel = panelNode.getChildByName('Coin Amount').getComponent(cc.Label);
+    coinLabel.string = coinAmount;
   },
 });

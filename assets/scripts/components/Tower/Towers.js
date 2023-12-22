@@ -1,6 +1,9 @@
 const MainEmitter = require('MainEmitter');
 const { GAME_EVENTS } = require('EventCode');
 
+const Emitter = require("EventEmitter");
+const Key = require("Key");
+
 cc.Class({
   extends: cc.Component,
 
@@ -38,6 +41,7 @@ cc.Class({
     const towerComponent = this.curTowerNode.getComponent('Tower');
     this.towerComponents.push(towerComponent);
     this.node.addChild(this.curTowerNode);
+    Emitter.instance.emit(Key.BUY_TURRET_SOUND)
   },
   onDestroyTower(towerComponent) {
     this.removeTowerComponent(towerComponent);

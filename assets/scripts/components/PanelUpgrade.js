@@ -1,8 +1,8 @@
 const MainEmitter = require('MainEmitter');
 const { GAME_EVENTS } = require('EventCode');
 
-const Emitter = require("EventEmitter");
-const Key = require("Key");
+const Emitter = require('EventEmitter');
+const Key = require('Key');
 cc.Class({
   extends: cc.Component,
 

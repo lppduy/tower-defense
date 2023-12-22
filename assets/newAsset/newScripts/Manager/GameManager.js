@@ -61,9 +61,19 @@ cc.Class({
 
   onCompleteGame() {
     this.UI.completeGame();
+    this.scheduleOnce(() => {
+      if (cc.sys.isBrowser) {
+        window.location.reload();
+      }
+    }, 3);
   },
 
   onGameOver() {
     this.UI.gameOver();
+    this.scheduleOnce(() => {
+      if (cc.sys.isBrowser) {
+        window.location.reload();
+      }
+    }, 3);
   },
 });

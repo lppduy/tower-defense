@@ -2,8 +2,8 @@ const Emitter = require("EventEmitter");
 const Key = require("Key");
 
 const soundConfig = {
-  sfxVolume: 0,
-  musicVolume: 0,
+  sfxVolume: 1,
+  musicVolume: 1,
   mouseSpeed:0,
 };
 cc.Class({

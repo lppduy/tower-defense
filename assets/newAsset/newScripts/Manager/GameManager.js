@@ -22,7 +22,6 @@ cc.Class({
     Emitter.instance.registerEvent(
       Key.SEND_DATA,
       ((data) => {
-        cc.log(data);
         Emitter.instance.emit(Key.PLAY_MUSIC, this.mSounds[0]);
       }).bind(this)
     );

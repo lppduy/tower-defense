@@ -27,7 +27,6 @@ cc.Class({
     onStartGame(){
         Emitter.instance.emit(Key.PLAY_SFX, this.mClickSound);
         cc.director.loadScene('Game', ()=>{
-            cc.log(data);
             Emitter.instance.emit(Key.SEND_DATA, data);
         });
     },

@@ -227,7 +227,7 @@
     "_enabled": true,
     "velocity": 60,
     "health": 2500,
-    "damage": 5,
+    "damage": 3,
     "coins": 500,
     "_rotationSpeed": 300,
     "_id": ""

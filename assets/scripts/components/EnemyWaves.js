@@ -73,11 +73,11 @@ cc.Class({
 
     if (this.isBoss) {
       if (waveIndex === 5) {
-        enemyComponent.health = 1500;
+        enemyComponent.health = 2500;
         enemyComponent.coins = 500;
       }
       if (waveIndex === 10) {
-        enemyComponent.health = 3000;
+        enemyComponent.health = 5000;
         enemyComponent.coins = 1000;
       }
     } else {

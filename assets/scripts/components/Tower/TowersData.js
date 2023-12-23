@@ -58,7 +58,7 @@ const TOWER_1_DATA = [
   {
     type: 'Tower1',
     level: 5,
-    damage: 100,
+    damage: 125,
     reloadTime: 1,
     price: 800,
     upgradePrice: '',
@@ -76,7 +76,7 @@ const TOWER_2_DATA = [
     level: 1,
     damage: 20,
     reloadTime: 2,
-    price: 60,
+    price: 50,
     upgradePrice: 100,
     attackRange: 1,
     bulletSpriteFrameIndex: 0,
@@ -130,7 +130,7 @@ const TOWER_2_DATA = [
   {
     type: 'Tower2',
     level: 5,
-    damage: 80,
+    damage: 105,
     reloadTime: 2,
     price: 800,
     upgradePrice: '',

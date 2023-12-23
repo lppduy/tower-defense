@@ -7,7 +7,7 @@ cc.Class({
 
   properties: {
     healthBar: cc.ProgressBar,
-    maxHealth: 50,
+    maxHealth: 10,
     curHealth: 0,
     explosionSound: {
       default: null,

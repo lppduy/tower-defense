@@ -1,13 +1,11 @@
-const MainEmitter = require("MainEmitter");
-const { GAME_EVENTS, UI_EVENTS } = require("EventCode");
-const LevelMap = require("LevelMap");
-const PanelCreate = require("PanelCreate");
-const Towers = require("Towers");
-const PanelUpgrade = require("PanelUpgrade");
-const EnemyWaves = require("EnemyWaves");
+const MainEmitter = require('MainEmitter');
+const { GAME_EVENTS, UI_EVENTS } = require('EventCode');
+const LevelMap = require('LevelMap');
+const PanelCreate = require('PanelCreate');
+const Towers = require('Towers');
+const PanelUpgrade = require('PanelUpgrade');
+const EnemyWaves = require('EnemyWaves');
 
-const Emitter = require("EventEmitter");
-const Key = require("Key");
 cc.Class({
   extends: cc.Component,
 
@@ -53,19 +51,13 @@ cc.Class({
     this.enemyWaves.init(this);
   },
   setEvents() {
-    this.map.node.on("touchend", this.onMapTouch, this);
+    this.map.node.on('touchend', this.onMapTouch, this);
     MainEmitter.instance.registerEvent(
       GAME_EVENTS.REQUEST_BUY_TOWER,
       this.onRequestBuyTower.bind(this)
     );
-    MainEmitter.instance.registerEvent(
-      GAME_EVENTS.ENEMY_KILLED,
-      this.updateCoinsAmount.bind(this)
-    );
-    MainEmitter.instance.registerEvent(
-      GAME_EVENTS.SELL_TOWER,
-      this.updateCoinsAmount.bind(this)
-    );
+    MainEmitter.instance.registerEvent(GAME_EVENTS.ENEMY_KILLED, this.updateCoinsAmount.bind(this));
+    MainEmitter.instance.registerEvent(GAME_EVENTS.SELL_TOWER, this.updateCoinsAmount.bind(this));
     MainEmitter.instance.registerEvent(
       GAME_EVENTS.REQUEST_UPGRADE_TOWER,
       this.onRequestUpgradeTower.bind(this)
@@ -87,18 +79,14 @@ cc.Class({
       if (!towerComponent) {
         this.panelCreate.show(coordinates);
       } else {
-        this.panelUpgrade.show(coordinates, towerComponent);
+        this.panelUpgrade.show(coordinates, towerComponent, this.coins);
       }
     }
   },
   onRequestBuyTower(price) {
     if (this.coins >= price) {
       MainEmitter.instance.emit(GAME_EVENTS.CREATE_TOWER);
-      // Emitter.instance.emit(Key.BUY_TURRET_SOUND);
-
       this.updateCoinsAmount(-price);
-    } else {
-      console.log("Not enough coins to buy tower!");
     }
     this.panelCreate.hide();
   },
@@ -106,8 +94,6 @@ cc.Class({
     if (this.coins >= towerComponent.upgradePrice) {
       this.updateCoinsAmount(-towerComponent.upgradePrice);
       towerComponent.upgradeTower();
-    } else {
-      console.log("Not enough coins to upgrade tower!");
     }
     this.panelUpgrade.hide();
   },

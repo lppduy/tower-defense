@@ -1,5 +1,5 @@
 const MainEmitter = require('MainEmitter');
-const { GAME_EVENTS } = require('EventCode');
+const { GAME_EVENTS, UI_EVENTS } = require('EventCode');
 
 const Emitter = require('EventEmitter');
 const Key = require('Key');
@@ -10,7 +10,12 @@ cc.Class({
     upgradePanel: cc.Node,
     sellPanel: cc.Node,
   },
-
+  onLoad() {
+    MainEmitter.instance.registerEvent(
+      UI_EVENTS.UPDATE_COINS_AMOUNT,
+      this.onUpdateCoinsAmount.bind(this)
+    );
+  },
   init(map) {
     this.map = map;
     this.coordinates = {
@@ -22,14 +27,14 @@ cc.Class({
     this.sellPanel.on('touchend', this.onSellTower, this);
   },
 
-  show(coordinates, towerComponent) {
+  show(coordinates, towerComponent, playerCoins) {
     this.towerComponent = towerComponent;
     this.coordinates = coordinates;
     const position = this.map.towersLayer.getPositionAt(this.coordinates);
     this.node.setPosition(
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
-    this.setCoinLabel(this.upgradePanel, towerComponent.upgradePrice);
+    this.updateUpgradePanelUI(towerComponent, playerCoins);
     this.setCoinLabel(this.sellPanel, Math.trunc(towerComponent.price / 2));
     this.node.active = true;
   },
@@ -38,7 +43,6 @@ cc.Class({
   },
 
   onUpgradeTower() {
-    Emitter.instance.emit(Key.UPGRADE_TURRET_SOUND);
     MainEmitter.instance.emit(GAME_EVENTS.REQUEST_UPGRADE_TOWER, this.towerComponent);
     this.hide();
   },
@@ -51,13 +55,19 @@ cc.Class({
   },
   setCoinLabel(panelNode, coinAmount) {
     const coinLabel = panelNode.getChildByName('Coin Amount').getComponent(cc.Label);
-    const buttonNode = panelNode.getComponent(cc.Button);
-    if (!coinAmount) {
-      coinLabel.string = 'MAX LV';
+    coinLabel.string = coinAmount;
+  },
+  updateUpgradePanelUI(towerComponent, playerCoins) {
+    const buttonNode = this.upgradePanel.getComponent(cc.Button);
+    if (towerComponent.level === towerComponent.maxLevel) {
       buttonNode.interactable = false;
+      this.setCoinLabel(this.upgradePanel, 'Max');
     } else {
-      coinLabel.string = coinAmount;
-      buttonNode.interactable = true;
+      buttonNode.interactable = playerCoins >= towerComponent.upgradePrice;
+      this.setCoinLabel(this.upgradePanel, towerComponent.upgradePrice);
     }
+  },
+  onUpdateCoinsAmount(amount) {
+    this.updateUpgradePanelUI(this.towerComponent, amount);
   },
 });

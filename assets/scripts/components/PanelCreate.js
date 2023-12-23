@@ -25,7 +25,7 @@ cc.Class({
       cc.v2(position.x + this.map.tileWidth / 2, position.y + this.map.tileHeight / 2)
     );
     this.setCoinLabel(this.panel1, 60);
-    this.setCoinLabel(this.panel2, 60);
+    this.setCoinLabel(this.panel2, 50);
     this.node.active = true;
   },
   hide() {

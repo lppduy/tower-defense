@@ -56,15 +56,13 @@ cc.Class({
     this.bulletData.spriteFrame = this.bulletSpriteFrames[curLevelData.bulletSpriteFrameIndex];
   },
   upgradeTower() {
-    if (this.level >= this.maxLevel) {
-      console.log('Tower max level');
-      return;
-    }
+    if (this.level >= this.maxLevel) return;
+
+    Emitter.instance.emit(Key.UPGRADE_TURRET_SOUND);
     this.levelTowers[this.level - 1].active = false;
     this.levelTowers[this.level].active = true;
     this.level++;
     this.configTower();
-    console.log('Upgrade tower successfully!', this.level);
   },
   onCollisionEnter(other, self) {
     if (other.node.group === 'enemy') {

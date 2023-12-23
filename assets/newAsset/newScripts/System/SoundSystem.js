@@ -1,5 +1,5 @@
-const Emitter = require("EventEmitter");
-const Key = require("Key");
+const Emitter = require('EventEmitter');
+const Key = require('Key');
 
 cc.Class({
   extends: cc.Component,
@@ -11,14 +11,8 @@ cc.Class({
   onLoad() {
     Emitter.instance.registerEvent(Key.PLAY_MUSIC, this.playMusic.bind(this));
     Emitter.instance.registerEvent(Key.PLAY_SFX, this.playSfx.bind(this));
-    Emitter.instance.registerEvent(
-      Key.CHANGE_SFX_VOLUME,
-      this.changeSfxVolume.bind(this)
-    );
-    Emitter.instance.registerEvent(
-        Key.CHANGE_MUSIC_VOLUME,
-        this.changeMusicVolume.bind(this)
-      );
+    Emitter.instance.registerEvent(Key.CHANGE_SFX_VOLUME, this.changeSfxVolume.bind(this));
+    Emitter.instance.registerEvent(Key.CHANGE_MUSIC_VOLUME, this.changeMusicVolume.bind(this));
   },
 
   //add music
@@ -30,7 +24,7 @@ cc.Class({
   //add sfx
   playSfx(clip) {
     this.mSfxSound.clip = clip;
-    this.mSfxSound.play();
+    cc.audioEngine.playEffect(this.mSfxSound.clip, false);
   },
 
   changeSfxVolume(volume) {

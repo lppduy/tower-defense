@@ -2,6 +2,8 @@ const MainEmitter = require('MainEmitter');
 const { GAME_EVENTS } = require('EventCode');
 const Emitter = require('EventEmitter');
 const Key = require('Key');
+const { blink } = require('utils');
+
 cc.Class({
   extends: cc.Component,
 
@@ -13,6 +15,7 @@ cc.Class({
       default: null,
       type: cc.AudioClip,
     },
+    mainSprite: cc.Node,
   },
 
   onLoad() {
@@ -22,6 +25,7 @@ cc.Class({
   },
 
   onHitBase(damage) {
+    blink(this.mainSprite);
     this.curHealth -= damage;
     this.healthBar.progress = this.curHealth / this.maxHealth;
     if (this.curHealth <= 0 && !this.isDestroyed) {

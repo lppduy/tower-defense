@@ -1,5 +1,7 @@
 const MainEmitter = require('MainEmitter');
 const { GAME_EVENTS } = require('EventCode');
+
+const { blink } = require('utils');
 cc.Class({
   extends: cc.Component,
 
@@ -9,6 +11,7 @@ cc.Class({
     damage: { default: 10, serializable: true },
     coins: { default: 10, serializable: true },
     _rotationSpeed: 300,
+    mainSprite: cc.Node,
   },
 
   init(level) {
@@ -91,6 +94,7 @@ cc.Class({
     );
   },
   takeDamage(damage) {
+    blink(this.mainSprite);
     this.health -= damage;
     if (this.health <= 0) {
       this.node.stopAllActions();

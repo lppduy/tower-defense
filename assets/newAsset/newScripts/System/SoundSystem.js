@@ -23,9 +23,9 @@ cc.Class({
   },
 
   //add sfx
-  playSfx(clip) {
+  playSfx(clip, isLoop = false) {
     this.mSfxSound.clip = clip;
-    const audioID = cc.audioEngine.playEffect(this.mSfxSound.clip, false);
+    const audioID = cc.audioEngine.playEffect(this.mSfxSound.clip, isLoop);
     cc.audioEngine.setVolume(audioID, this.mSfxSound.volume);
   },
 

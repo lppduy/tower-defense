@@ -1,3 +1,6 @@
+const Emitter = require('EventEmitter');
+const Key = require('Key');
+
 cc.Class({
   extends: cc.Component,
 
@@ -74,9 +77,6 @@ cc.Class({
   },
 
   playExplosionSound() {
-    const audioId = cc.audioEngine.playEffect(this.explosionSound, false);
-    this.scheduleOnce(() => {
-      cc.audioEngine.stopEffect(audioId);
-    }, 0.5);
+    Emitter.instance.emit(Key.PLAY_SFX, this.explosionSound);
   },
 });

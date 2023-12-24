@@ -550,6 +550,9 @@
     "explosionSound": {
       "__uuid__": "a2520173-b36a-4c2f-8df0-51342cbff528"
     },
+    "mainSprite": {
+      "__id__": 2
+    },
     "_id": ""
   },
   {

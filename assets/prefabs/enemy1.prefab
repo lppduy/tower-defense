@@ -32,13 +32,10 @@
       },
       {
         "__id__": 7
-      },
-      {
-        "__id__": 8
       }
     ],
     "_prefab": {
-      "__id__": 9
+      "__id__": 8
     },
     "_opacity": 255,
     "_color": {
@@ -186,38 +183,6 @@
     "sync": false
   },
   {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": false,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "50a1e7ae-6801-4a77-b5ee-89bfbaee149c"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
-    "_id": ""
-  },
-  {
     "__type__": "67ed0+CLJJM8oTR1Qg4EHKL",
     "_name": "",
     "_objFlags": 0,
@@ -232,9 +197,6 @@
     "_rotationSpeed": 300,
     "mainSprite": {
       "__id__": 2
-    },
-    "sound": {
-      "__uuid__": "b67710b1-34f6-41b0-8bc7-e747e5e4c71f"
     },
     "_id": ""
   },
